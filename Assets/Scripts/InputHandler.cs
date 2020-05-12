@@ -15,7 +15,9 @@ public class InputHandler : MonoBehaviour
 
     Vector3 previousPos, currentPos;
 
+    public Transform ballInitPoint;
     public float smoothnessFactor;
+    public float ballSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +65,8 @@ public class InputHandler : MonoBehaviour
 
     void ThrowBall()
     {
-        
+        GameObject newBall = Instantiate(ball, ballInitPoint.position,Quaternion.identity);
+        newBall.GetComponent<Rigidbody>().AddForce((crosshairObj.transform.position - newBall.transform.position) * ballSpeed, ForceMode.Impulse);
     }
 
     private void OnMouseDrag()
