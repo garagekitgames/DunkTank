@@ -266,16 +266,16 @@ public class RagdollDriver : MonoBehaviour {
 
         //if (l == 0)
         //{
-        //	UnityEngine.Debug.LogWarning("There are no configurable joints on the ragdoll " + this.name + "\nDrag and drop the ReplaceJoints script on the ragdoll." + "\n");
-        //	userNeedsToAssignStuff = true;
-        //	return;
+        //    UnityEngine.Debug.LogWarning("There are no configurable joints on the ragdoll " + this.name + "\nDrag and drop the ReplaceJoints script on the ragdoll." + "\n");
+        //    userNeedsToAssignStuff = true;
+        //    return;
         //}
         //else
         //{
-        //SetJointTorque (maxJointTorque);
-        //SetJointTorque (maxJointTorque);
-        EnableJointLimits(EnableJointLimit);
-		//}
+        //    SetJointTorque(maxJointTorque);
+        //    SetJointTorque(maxJointTorque);
+            EnableJointLimits(EnableJointLimit);
+        //}
 
 		if (slaveRigidTransforms.Length == 0 )
 			UnityEngine.Debug.LogWarning("There are no rigid body components on the ragdoll " + this.name + "\n");
@@ -417,6 +417,11 @@ public class RagdollDriver : MonoBehaviour {
             {
                 jointDrive.positionSpring = positionSpring * maxJointTorqueProfile[i];
                 jointDrive.positionDamper = positionDamper * jointDampingProfile[i];
+                configurableJoints[i].slerpDrive = jointDrive;
+            }else
+            {
+                jointDrive.positionSpring =  maxJointTorqueProfile[i];
+                jointDrive.positionDamper =  jointDampingProfile[i];
                 configurableJoints[i].slerpDrive = jointDrive;
             }
                 

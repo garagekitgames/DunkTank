@@ -59,7 +59,7 @@ public class Trajectory : MonoBehaviour
 
             //print(pos.x);
             
-            // pos.z = (ballPos.z + forceApplied.z * timeStamp) - 0.5f * (Physics.gravity.magnitude * timeStamp * timeStamp) / 2f;
+            pos.z = (ballPos.z + forceApplied.z * timeStamp);
 
             //you can simlify this 2 lines at the top by:
             //pos = (ballPos+force*time)-((-Physics2D.gravity*time*time)/2f);
