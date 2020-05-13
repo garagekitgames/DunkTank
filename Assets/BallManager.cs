@@ -15,6 +15,8 @@ public class BallManager : MonoBehaviour
 
     private void Start()
     {
+
+
     }
 
     private void Update()
@@ -62,7 +64,7 @@ public class BallManager : MonoBehaviour
         distance = Vector3.Distance(startPoint, endPoint);
         // direction = (startPoint - endPoint).normalized;
 
-        direction = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y), Mathf.Clamp(startPoint.z - endPoint.z, minPower.z, maxPower.z));
+        direction = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y),5f);
         force = distance * direction * pushForce;
         Debug.DrawLine(startPoint, endPoint);
 
@@ -76,7 +78,6 @@ public class BallManager : MonoBehaviour
         ball.ActivateRb();
         ball.Push(force);
         trajectory.Hide();
-
     }
 
     public void ResetBall()
