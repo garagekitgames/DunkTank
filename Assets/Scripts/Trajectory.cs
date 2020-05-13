@@ -9,8 +9,8 @@ public class Trajectory : MonoBehaviour
     private Transform[] dotsList;
     public int dotsCount;
 
-    [SerializeField] [Range(0.01f, 0.3f)] private float dotMinScale;
-    [SerializeField] [Range(0.3f, 1f)] private float dotMaxScale;
+    [SerializeField] [Range(0.01f, 0.1f)] private float dotMinScale;
+    [SerializeField] [Range(0.1f, 1f)] private float dotMaxScale;
     [SerializeField] private float dotSpacing;
     private float timeStamp;
     private Vector3 pos;

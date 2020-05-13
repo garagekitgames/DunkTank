@@ -4,7 +4,7 @@ public class BallManager : MonoBehaviour
 {
     public BallSling ball;
     public Camera cam;
-    [SerializeField] private float pushForce = 4f;
+    [SerializeField] private readonly float pushForce = 4f;
     private bool isDragging = false;
     private Vector3 startPoint, endPoint, force, direction;
 
@@ -13,33 +13,33 @@ public class BallManager : MonoBehaviour
 
     public Trajectory trajectory;
 
-    private void Start()
-    {
-
-
-    }
+    public bool isBallready;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isBallready)
         {
-            isDragging = true;
-            OnDragStart();
-        }
-        if (isDragging)
-        {
-            OnDrag();
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            isDragging = false;
-            OnDragEnd();
+            if (Input.GetMouseButtonDown(0))
+            {
+                isDragging = true;
+                OnDragStart();
+            }
+            if (isDragging)
+            {
+                OnDrag();
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                isDragging = false;
+                OnDragEnd();
+            }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ResetBall();
+            }
         }
 
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            ResetBall();
-        }
     }
 
     public void OnDragStart()
@@ -64,7 +64,7 @@ public class BallManager : MonoBehaviour
         distance = Vector3.Distance(startPoint, endPoint);
         // direction = (startPoint - endPoint).normalized;
 
-        direction = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y),5f);
+        direction = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y), 5f);
         force = distance * direction * pushForce;
         Debug.DrawLine(startPoint, endPoint);
 
@@ -75,9 +75,14 @@ public class BallManager : MonoBehaviour
 
     public void OnDragEnd()
     {
+
         ball.ActivateRb();
         ball.Push(force);
         trajectory.Hide();
+        GameManager_Muthu.instance.ballReleasedIndicationEvent.Invoke();
+
+        isBallready = false;
+
     }
 
     public void ResetBall()
