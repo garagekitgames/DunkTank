@@ -17,7 +17,7 @@ public class GameManager_Muthu : MonoBehaviour
     private void Start()
     {
         instance = this.GetComponent<GameManager_Muthu>();
-        hud.DrawNoOfBalls(5);
+        hud.DrawNoOfBalls(50);
         ballManager.isBallready = true;
         ballReleasedIndicationEvent.AddListener(BallReleased);
     }    

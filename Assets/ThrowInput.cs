@@ -193,6 +193,17 @@ public class ThrowInput : MonoBehaviour
         //ball.transform.position = ball.startPos;
     }
 
+    public void SwitchThrowType()
+    {
+        if(throwType == ThrowType.FromObject)
+        {
+            throwType = ThrowType.FromScreen;
+        }
+        else
+        {
+            throwType = ThrowType.FromObject;
+        }
+    }
     Ray GenerateMouseRay()
     {
         Vector3 mousePosFar = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.farClipPlane);

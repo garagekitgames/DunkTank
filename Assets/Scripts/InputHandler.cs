@@ -62,6 +62,10 @@ public class InputHandler : MonoBehaviour
         }
     }
 
+    public void SetSmoothness(float value)
+    {
+        smoothnessFactor = value;
+    }
 
     void ThrowBall()
     {

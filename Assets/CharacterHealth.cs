@@ -40,9 +40,9 @@ public class CharacterHealth : MonoBehaviour
         {
             if (myRagdollDriver.slaveBodyParts[i].myBodyPartType == myBodyPartType)
             {
-                if ((bodyPartHealth[i] - damage * 20) >= 0)
+                if ((bodyPartHealth[i] - damage * 50) >= 0)
                 {
-                    bodyPartHealth[i] -= damage * 20;
+                    bodyPartHealth[i] -= damage * 50;
                     myRagdollDriver.maxTorqueProfile[i] = bodyPartHealth[i] / startingHealth * 100;
                     myRagdollDriver.maxJointTorqueProfile[i] = bodyPartHealth[i] / startingHealth * 1f;
                     myRagdollDriver.maxForceProfile[i] = bodyPartHealth[i] / startingHealth * 1f;

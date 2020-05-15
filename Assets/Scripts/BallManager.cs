@@ -64,7 +64,7 @@ public class BallManager : MonoBehaviour
         distance = Vector3.Distance(startPoint, endPoint);
         // direction = (startPoint - endPoint).normalized;
 
-        direction = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y), 5f);
+        direction = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x), Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y), 10f);
         force = distance * direction * pushForce;
         Debug.DrawLine(startPoint, endPoint);
 

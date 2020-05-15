@@ -16,7 +16,7 @@ public class BallSling : MonoBehaviour
 
     public void Push(Vector3 force)
     {
-        rb.AddForce(force, ForceMode.Impulse);
+        rb.AddForce(force, ForceMode.VelocityChange);
     }
 
     public void ActivateRb()
