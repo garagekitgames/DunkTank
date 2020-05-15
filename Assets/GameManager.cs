@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton
 {
+
     [Header("Scritable Objects")]
     public Balls currentBall;
     public Levels currentLevel;

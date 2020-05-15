@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level 4
   m_EditorClassIdentifier: 
   LevelName: 
-  level: 0
+  level: 4
   thumbnail: {fileID: 0}

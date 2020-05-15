@@ -987,8 +987,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1050700547}
   - component: {fileID: 1050700546}
+  - component: {fileID: 1050700549}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1026,6 +1027,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1050700549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050700545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3695f1be8139ae479568924489d0d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBall: {fileID: 11400000, guid: 0af27302707724d4d97389c74e59b4c1, type: 2}
+  currentLevel: {fileID: 11400000, guid: 18a603bf89b094a4abb77616a11baa9b, type: 2}
+  coinsWonInThisRound: 0
+  currentCoins: 0
 --- !u!4 &1064986638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044145726038734, guid: ffe16f9903d0b604aab93d16dfb3281d,
