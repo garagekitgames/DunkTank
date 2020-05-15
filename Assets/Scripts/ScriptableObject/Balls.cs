@@ -7,7 +7,9 @@ public class Balls : ScriptableObject
 {
     public float damage;
     public int ammo;
-    public int level;
+    public int unLockBallAtLevel;
+    public int coinsToBuyBall;
     public Sprite thumbnail;
     public GameObject ballPrefab;
+
 }
