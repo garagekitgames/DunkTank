@@ -16,7 +16,8 @@ public class RagdollDriver : MonoBehaviour {
 
 	public Transform[] slaveTransforms;
 	public Rigidbody[] slaveRigidbodies = new Rigidbody[1];
-	public Vector3[] rigidbodiesPosToCOM;
+    public BodyPart[] slaveBodyParts = new BodyPart[1];
+    public Vector3[] rigidbodiesPosToCOM;
 	public Transform[] slaveRigidTransforms = new Transform[1];
 	public Transform[] slaveExcludeTransforms;
 
@@ -179,7 +180,9 @@ public class RagdollDriver : MonoBehaviour {
 
 		#region
 		slaveRigidbodies = GetComponentsInChildren<Rigidbody>();
-		j = slaveRigidbodies.Length;
+        slaveBodyParts = GetComponentsInChildren<BodyPart>();
+
+        j = slaveRigidbodies.Length;
 		System.Array.Resize(ref masterRigidTransforms, j);
 		System.Array.Resize(ref slaveRigidTransforms, j);
 
