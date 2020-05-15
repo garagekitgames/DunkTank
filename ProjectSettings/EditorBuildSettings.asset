@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Staging.unity
+    guid: 57c0fb4f623144f9785720415ff6cedc
+  - enabled: 1
+    path: Assets/Scenes/Staging_Muthu.unity
+    guid: e501892a9e50684469083dbe6663ce7d
+  - enabled: 1
+    path: Assets/Scenes/Staging_Venky.unity
+    guid: 4593b53a09397434c9a1cc78e81dcf10
   m_configObjects: {}
