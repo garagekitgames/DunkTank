@@ -14,7 +14,7 @@ public class EnemyManager : MonoBehaviour
     private int i;
 
     public GameObject enemyPrefab;
-    public Transform pos;
+    public Transform testPos;
 
 
 
@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SpawnEnemies(5f, pos);
+            SpawnEnemies(5f, testPos);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -38,6 +38,7 @@ public class EnemyManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             enemyRuntimeSet.Items.Clear();
+            CheckAllEnemiesDiedBeforeReaching();
         }
     }
 
@@ -47,10 +48,10 @@ public class EnemyManager : MonoBehaviour
     {
         for (i = 0; i < _listOfEnemies; i++)
         {
-            GameObject temp = Instantiate(enemyPrefab, pos);
-            float x = Random.Range(-5, 5);
-            float y = Random.Range(-5, 5);
-            temp.transform.localPosition = new Vector3(x, y, Random.Range(0, 5));
+            GameObject temp = Instantiate(enemyPrefab);
+         //   float x = Random.Range(-5, 5);
+         //   float y = Random.Range(-5, 5);
+            temp.transform.position = pos.position;
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }
@@ -75,6 +76,7 @@ public class EnemyManager : MonoBehaviour
         {
             allEnemiesDead.Invoke();
             enemyRuntimeSet.Items.Clear();
+            LevelManager.instance.segmentFinished.Invoke();
         }
     }
    
