@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fed788fffeccbe48b657ff43915be98, type: 3}
   m_Name: Ball1
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 135
   ammo: 2
-  level: 1
-  thumbnail: {fileID: 0}
+  unLockBallAtLevel: 0
+  ballLevel: 3
+  ballMaxLevel: 10
+  coinsToBuyBall: 1300
+  thumbnail: {fileID: 21300000, guid: b9012972562562a438cf9026ab3e59eb, type: 3}
+  ballPrefab: {fileID: 6768113501532881705, guid: 1cc31ba3c687bce4ba2a2641162b36b4,
+    type: 3}
