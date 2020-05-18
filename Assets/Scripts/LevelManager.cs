@@ -118,14 +118,21 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void OnLevelFailed()
+    public  void RestartLevel()
     {
         //Show UI.
         //Destroy all enemeies
         Debug.Log("Level Failed");
+        EnemyManager.eManager.DisableEnemies();
+        for (int i = 0; i < currentlySpawnedSegments.Count; i++)
+        {
+            Destroy(currentlySpawnedSegments[i].gameObject);
+        }
+        currentlySpawnedSegments.Clear();
+
         currentSegmentCount = 0;
-        currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
-        //PlaceSegments();
+        //currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
+        PlaceSegments();
     }
 
 }
