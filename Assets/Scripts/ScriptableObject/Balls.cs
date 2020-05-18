@@ -13,5 +13,5 @@ public class Balls : ScriptableObject
     public int coinsToBuyBall;
     public Sprite thumbnail;
     public GameObject ballPrefab;
-
+    public float reloadingTime;
 }
