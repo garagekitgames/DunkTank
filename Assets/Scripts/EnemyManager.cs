@@ -54,10 +54,10 @@ public class EnemyManager : MonoBehaviour
     {
         for (i = 0; i < _enemySpawnPoint.Length; i++)
         {
-            GameObject temp = Instantiate(GetTheEnemy(_enemySpawnPoint[i].enemyType));
+            GameObject temp = Instantiate(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].spawnPosition.position, Quaternion.identity);
             //   float x = Random.Range(-5, 5);
             //   float y = Random.Range(-5, 5);
-            temp.transform.position = _enemySpawnPoint[i].spawnPosition.position;
+            //temp.transform.position = _enemySpawnPoint[i].spawnPosition.position;
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }

@@ -18,7 +18,8 @@ public class Enemy_Dunk : MonoBehaviour
         isEnemyAlive = true;
         enemyRuntimeSet.Add(this);
         //myEnemyController = this.GetComponent<AP>
-         myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform;
+         myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
+        Debug.LogError(LevelManager.instance.currentSegmentObj.goalObject.transform.position);
     }
     #endregion
 
@@ -98,11 +99,12 @@ public class Enemy_Dunk : MonoBehaviour
     public void OnDied()
     {
         myEnemyController.ActivateRagdoll();
-        Destroy(this.gameObject, 3);
         isEnemyAlive = false;
         enemyRuntimeSet.Remove(this);
+        //Destroy(this.gameObject, 3);
+        this.gameObject.SetActive(false);
         // EnemyManager.eManager._listOfDiedEnemy.Add(this.gameObject);
-        //EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
+        EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
     }
     #endregion
 }

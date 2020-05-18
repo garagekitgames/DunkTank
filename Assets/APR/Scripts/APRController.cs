@@ -111,7 +111,7 @@ public class APRController : MonoBehaviour
 	UpperRightLegTarget, LowerRightLegTarget,
 	UpperLeftLegTarget, LowerLeftLegTarget;
 
-    public Transform target;
+    public Vector3 target;
 
     public GameObject test;
     private Quaternion startingRotation;
@@ -208,6 +208,7 @@ public class APRController : MonoBehaviour
         }
         else
         {
+            print(target);
             LookAtTarget();
             MoveTowardsTarget();
         }
@@ -236,7 +237,7 @@ public class APRController : MonoBehaviour
         //Vector3 dirToMove = (target.position - APR_Parts[0].transform.position);
 
         //APR_Parts[0].GetComponent<Rigidbody>().AddForce(dirToMove.magnitude * dirToMove.normalized * 1000);
-        agent.SetDestination(target.position);
+        agent.SetDestination(target);
         if (canMove && balanced && !KnockedOut)//(canMove)//(canMove && balanced && !KnockedOut)
         {
             //agent.isStopped = false;
