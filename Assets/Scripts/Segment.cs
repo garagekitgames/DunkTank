@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Segment : MonoBehaviour
 {
-
-    public GameObject[] enemies;
-    public Transform[] enemySpawnPoints;
+    public EnemySpawnPoint[] enemySpawnPoints;
     //TO DO Declare Traps
     public Transform cameraPosition;
     public GameObject goalObject;

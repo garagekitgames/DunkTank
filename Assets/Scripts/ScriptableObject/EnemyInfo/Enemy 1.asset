@@ -16,3 +16,6 @@ MonoBehaviour:
   enemyName: 
   level: 0
   thumbnail: {fileID: 0}
+  hp: 100
+  enemyPrefab: {fileID: 3212994448876713229, guid: 329e696a2fc20425ba73da9b364cc8d8,
+    type: 3}
