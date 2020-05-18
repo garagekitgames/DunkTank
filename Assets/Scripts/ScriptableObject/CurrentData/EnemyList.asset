@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa060bfbb175e042ab06369f4dc0506, type: 3}
   m_Name: EnemyList
   m_EditorClassIdentifier: 
-  _listOfEnemies: []
+  _listOfEnemies:
+  - {fileID: 11400000, guid: d09b000ce3d0bc44cbbe649c2d6884bf, type: 2}
+  - {fileID: 11400000, guid: c7d2991b621542a4c88aa05f3d79d273, type: 2}
   _listOfBoss: []

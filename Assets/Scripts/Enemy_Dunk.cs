@@ -18,7 +18,7 @@ public class Enemy_Dunk : MonoBehaviour
         isEnemyAlive = true;
         enemyRuntimeSet.Add(this);
         //myEnemyController = this.GetComponent<AP>
-        // myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform;
+         myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform;
     }
     #endregion
 

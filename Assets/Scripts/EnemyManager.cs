@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 public enum EnemyTypes {Level1,Level2,Level3 }
 
@@ -49,18 +50,24 @@ public class EnemyManager : MonoBehaviour
 
     #region Enemy Spawn Function
 
-    //public void SpawnEnemies(EnemySpawnScript[] NoOfSpawnPoints)
-    //{
-    //    for (i = 0; i < NoOfSpawnPoints.Length; i++)
-    //    {
-    //        GameObject temp = Instantiate(enemyPrefab);
-    //     //   float x = Random.Range(-5, 5);
-    //     //   float y = Random.Range(-5, 5);
-    //        temp.transform.position = pos[i].position;
-    //        _listOfEnemy.Add(temp);
-    //        temp.GetComponent<Enemy_Dunk>().OnSpawned();
-    //    }
-    //}
+    public void SpawnEnemies(EnemySpawnPoint[] _enemySpawnPoint)
+    {
+        for (i = 0; i < _enemySpawnPoint.Length; i++)
+        {
+            GameObject temp = Instantiate(GetTheEnemy(_enemySpawnPoint[i].enemyType));
+            //   float x = Random.Range(-5, 5);
+            //   float y = Random.Range(-5, 5);
+            temp.transform.position = _enemySpawnPoint[i].spawnPosition.position;
+            _listOfEnemy.Add(temp);
+            temp.GetComponent<Enemy_Dunk>().OnSpawned();
+        }
+    }
+
+    GameObject GetTheEnemy(EnemyTypes _reqdType)
+    {
+        EnemyScriptableObject enemy = enemyList._listOfEnemies.ToList().Where(x => x.enemyType == _reqdType).First();
+        return enemy.enemyPrefab;
+    }
 
     #endregion
 

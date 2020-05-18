@@ -59,7 +59,7 @@ public class LevelManager : MonoBehaviour
         for(int i = 1; i < segmentsPerLevel; i++)
         {
             Vector3 newPosition = currentlySpawnedSegments[i - 1].transform.position;
-            newPosition.x += distanceBetweenSegments;
+            newPosition.z += distanceBetweenSegments;
             GameObject obj = Instantiate(easySegments[Random.Range(0,easySegments.Length)].gameObject, newPosition, Quaternion.identity);
             currentlySpawnedSegments.Add(obj.GetComponent<Segment>());
         }
@@ -77,7 +77,7 @@ public class LevelManager : MonoBehaviour
         //Spawn Enemies
 
 
-        //EnemyManager.eManager.SpawnEnemies(10, currentSegmentObj.enemySpawnPoints);
+        EnemyManager.eManager.SpawnEnemies(currentSegmentObj.enemySpawnPoints);
         
         
         //currentSegmentObj.enemies;
