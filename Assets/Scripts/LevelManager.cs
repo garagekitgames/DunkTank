@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using SO;
 public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager instance;
 
+    public IntVariable _currentLevel;
     public int currentLevel = 0;
     private int currentSegmentCount = 0;
 
