@@ -6378,6 +6378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd437d01034cef4bb339e67a81c2532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentLevel: {fileID: 0}
   currentLevel: 0
   initialSegmentSpawnPoint: {x: 0, y: 1.6, z: -6}
   segmentsPerLevel: 3
