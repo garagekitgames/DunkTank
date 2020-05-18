@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void ReplayLevelButtonPressed()
     {
-        levelFailedUI.SetActive(true);
+        levelFailedUI.SetActive(false);
         ReplayLevel.Invoke();
     }
 }

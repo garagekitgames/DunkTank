@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-
+using SO;
 public class LevelManager : MonoBehaviour
 {
 
     public static LevelManager instance;
 
+    public IntVariable _currentLevel;
     public int currentLevel = 0;
     private int currentSegmentCount = 0;
 
@@ -118,14 +119,21 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    void OnLevelFailed()
+    public  void RestartLevel()
     {
         //Show UI.
         //Destroy all enemeies
         Debug.Log("Level Failed");
+        EnemyManager.eManager.DisableEnemies();
+        for (int i = 0; i < currentlySpawnedSegments.Count; i++)
+        {
+            Destroy(currentlySpawnedSegments[i].gameObject);
+        }
+        currentlySpawnedSegments.Clear();
+
         currentSegmentCount = 0;
-        currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
-        //PlaceSegments();
+        //currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
+        PlaceSegments();
     }
 
 }

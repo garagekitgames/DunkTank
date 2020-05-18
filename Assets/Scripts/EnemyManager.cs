@@ -101,6 +101,15 @@ public class EnemyManager : MonoBehaviour
         Debug.Log("Mudinjiduchu");
     }
 
+    public void DisableEnemies()
+    {
+        for (int i = 0; i < _listOfEnemy.Count; i++)
+        {
+            _listOfEnemy[i].SetActive(false);
+        }
+        enemyRuntimeSet.Items.Clear();
+    }
+
     #endregion
 
 }

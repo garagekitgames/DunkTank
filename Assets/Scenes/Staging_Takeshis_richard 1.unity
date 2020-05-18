@@ -5064,7 +5064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCompleteUI: {fileID: 1118901001}
-  levelFailedUI: {fileID: 932035113}
+  levelFailedUI: {fileID: 0}
   GotoNextLevel:
     m_PersistentCalls:
       m_Calls:
@@ -6359,7 +6359,6 @@ GameObject:
   - component: {fileID: 1157213923}
   - component: {fileID: 1157213925}
   - component: {fileID: 1157213926}
-  - component: {fileID: 1157213927}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -6477,33 +6476,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1157213923}
         m_MethodName: OnGotoNextLevelSuccess
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1157213927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157213922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: cae55835fb84df24e83a20ee1f2ccf0c, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1157213923}
-        m_MethodName: RestartLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7832,6 +7804,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
+        type: 3}
+      propertyPath: torque
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
+        type: 3}
+      propertyPath: maxForce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5146521326424781982, guid: a1c121e176203413b9daeb58f559a366,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7897,6 +7879,11 @@ PrefabInstance:
       propertyPath: m_CullingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3996581905089382344, guid: a1c121e176203413b9daeb58f559a366,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5146521327737160935, guid: a1c121e176203413b9daeb58f559a366,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -7936,21 +7923,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.000000049617665
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
-        type: 3}
-      propertyPath: torque
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
-        type: 3}
-      propertyPath: maxForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3996581905089382344, guid: a1c121e176203413b9daeb58f559a366,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c121e176203413b9daeb58f559a366, type: 3}
