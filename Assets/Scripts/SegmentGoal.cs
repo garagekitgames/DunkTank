@@ -20,6 +20,7 @@ public class SegmentGoal : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Failed");
             LevelManager.instance.levelFailed.Invoke();
         }
     }

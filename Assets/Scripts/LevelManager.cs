@@ -27,8 +27,8 @@ public class LevelManager : MonoBehaviour
     public Segment currentSegmentObj;
 
     [Header("Events")]
-    public UnityEvent segmentFinished;
-    public UnityEvent levelFinished;
+    //public UnityEvent segmentFinished;
+    //public UnityEvent levelFinished;
     public UnityEvent levelFailed;
 
 
@@ -41,9 +41,9 @@ public class LevelManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        levelFailed.AddListener(OnLevelFailed);
+        //levelFailed.AddListener(OnLevelFailed);
         //segmentFinished.AddListener(OnSegmentCompleted);
-        levelFinished.AddListener(OnLevelCompleted);
+        //levelFinished.AddListener(OnLevelCompleted);
         PlaceSegments();
     }
 
@@ -87,25 +87,34 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    void OnLevelCompleted()
+    public void OnGotoNextLevelSuccess()
     {
         currentLevel += 1;
         currentSegmentCount = 0;
+        for (int i = 0; i < currentlySpawnedSegments.Count; i++)
+        {
+            //currentlySpawnedSegments.Remove()
+            Destroy(currentlySpawnedSegments[i].gameObject);
+        }
         currentlySpawnedSegments.Clear();
         currentSegmentObj = null;
+
+        PlaceSegments();
     }
 
     public void OnSegmentCompleted()
     {
         currentSegmentCount += 1;
-        currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
-        if(currentSegmentCount <= segmentsPerLevel)
+        
+        if(currentSegmentCount < segmentsPerLevel)
         {
+            currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
             EnableCurrentSegment();
         }
         else
         {
-            levelFinished.Invoke();
+            OnLevelFinished.Invoke();
+            //OnLevelCompleted();
         }
     }
 
