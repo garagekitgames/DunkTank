@@ -2,18 +2,21 @@
 
 namespace MyCompany.GameFramework.Pooling
 {
-	public class PooledItem : MonoBehaviour
-	{
-		private ObjectPool objectPool;
+    public class PooledItem : MonoBehaviour
+    {
+        private ObjectPool objectPool;
 
-		public void SetPool(ObjectPool objectPool)
-		{
-			this.objectPool = objectPool;
-		}
+        public void SetPool(ObjectPool objectPool)
+        {
+            this.objectPool = objectPool;
+        }
 
-		public void OnDisable()
-		{
-			objectPool.ReturnToPool(gameObject);
-		}
-	}
+        public void OnDisable()
+        {
+            if (objectPool != null)
+            {
+                objectPool.ReturnToPool(gameObject);
+            }
+        }
+    }
 }

@@ -34,7 +34,6 @@ public class ThrowInput : MonoBehaviour
 
     private void HandleInput()
     {
-
         if (touchInput)
         {
             Touch[] myTouches = Input.touches;
@@ -45,8 +44,7 @@ public class ThrowInput : MonoBehaviour
                 {
                     Ray mouseRay = GenerateMouseRay();
                    
-                    target = mouseRay.GetPoint(20);
-                  
+                    target = mouseRay.GetPoint(20);                
 
                 }
              

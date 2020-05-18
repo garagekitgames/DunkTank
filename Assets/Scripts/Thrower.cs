@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using MyCompany.GameFramework.Pooling;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,34 +10,33 @@ public class Thrower : MonoBehaviour
     public Transform launchPoint;
 
     public float speed;
-    // Start is called before the first frame update
-    void Start()
+
+    public ObjectPool op;
+
+    public void Start()
     {
-        
+        op = new ObjectPool(ballPrefab,10);
+        ballPrefab.GetComponent<PooledItem>().SetPool(op);
     }
 
     public void Throw(Vector3 _target)
-    {
-        
-        var ball = Instantiate(ballPrefab, launchPoint.position, Quaternion.identity);
-
+    {       
+       // var ball = Instantiate(ballPrefab, launchPoint.position, Quaternion.identity);
+        var ball = op.InstantiateFromPool(launchPoint);
         ball.GetComponent<Rigidbody>().AddForce((_target - launchPoint.position).normalized * speed, ForceMode.VelocityChange);
-
-        Destroy(ball.gameObject, 3);
+        StartCoroutine(ReturnObjectToPool(ball));
     }
 
     public void Throw(Vector3 _target, Vector3 origin)
     {
-
         var ball = Instantiate(ballPrefab, origin, Quaternion.identity);
-
         ball.GetComponent<Rigidbody>().AddForce((_target - origin).normalized * speed, ForceMode.VelocityChange);
-
-        Destroy(ball.gameObject, 3);
+        //Destroy(ball.gameObject, 3);
     }
-    // Update is called once per frame
-    void Update()
+
+    public IEnumerator ReturnObjectToPool(GameObject ball)
     {
-        
+        yield return new WaitForSeconds(3f);
+        op.ReturnToPool(ball);
     }
 }
