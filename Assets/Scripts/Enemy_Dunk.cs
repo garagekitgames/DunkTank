@@ -19,7 +19,7 @@ public class Enemy_Dunk : MonoBehaviour
         enemyRuntimeSet.Add(this);
         //myEnemyController = this.GetComponent<AP>
          myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
-        Debug.LogError(LevelManager.instance.currentSegmentObj.goalObject.transform.position);
+       // Debug.LogError(LevelManager.instance.currentSegmentObj.goalObject.transform.position);
     }
     #endregion
 
