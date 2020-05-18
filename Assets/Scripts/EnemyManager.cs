@@ -60,7 +60,7 @@ public class EnemyManager : MonoBehaviour
     {
         if(enemyObjectPool==null)
         {
-            enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 60);
+            enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 60, true);
         }
 
         for (i = 0; i < _enemySpawnPoint.Length; i++)
