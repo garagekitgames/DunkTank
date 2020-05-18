@@ -52,7 +52,7 @@ public class APRController : MonoBehaviour
 	public bool balanced = true;
 	public bool GettingUp;
 	public bool KnockedOut;
-	private bool isJumping;
+	public bool isJumping;
 	private bool Jump;
 	private bool inAir;
 	private bool Landed = true;
@@ -237,7 +237,7 @@ public class APRController : MonoBehaviour
 
         //APR_Parts[0].GetComponent<Rigidbody>().AddForce(dirToMove.magnitude * dirToMove.normalized * 1000);
         agent.SetDestination(target.position);
-        if (canMove)//(canMove && balanced && !KnockedOut)
+        if (canMove && balanced && !KnockedOut)//(canMove)//(canMove && balanced && !KnockedOut)
         {
             //agent.isStopped = false;
 
@@ -559,7 +559,7 @@ public class APRController : MonoBehaviour
 	void GroundCheck()
 	{
 		//Raycast to detect ground, Note: the floor object must be tagged "Ground".
-		Ray ray = new Ray (APR_Parts[0].transform.position, -APR_Parts[0].transform.up);
+		Ray ray = new Ray (APR_Parts[0].transform.position, -Vector3.up);
 		RaycastHit hit;
 		
 		//Balance when ground detected

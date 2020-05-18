@@ -28,19 +28,10 @@ public class Enemy_Dunk : MonoBehaviour
         if (canDamage)
         {
             enemyHP -= damage;
-            print("recoverRoutine "+ recoverRoutine);
+            //print("recoverRoutine "+ recoverRoutine);
 
 
-            if (recoverRoutine != null)
-            {
-                print("if");
-                StopCoroutine(recoverRoutine);
-            }
-            else
-            {
-                print("coroutine start");
-                recoverRoutine = StartCoroutine(Recover());
-            }
+            
             CheckAlive();
         }
 
@@ -50,23 +41,36 @@ public class Enemy_Dunk : MonoBehaviour
 
     IEnumerator Recover()
     {
-        print("begin");
+        //print("begin");
 
         myEnemyController.ActivateRagdoll();
         canDamage = false;
         yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
-        myEnemyController.GettingUp = true;
-        myEnemyController.balanced = true;
-        if (myEnemyController.KnockedOut)
-        {
 
-            myEnemyController.DeactivateRagdoll();
+        if (!myEnemyController.balanced && !myEnemyController.isJumping)
+        {
+            myEnemyController.GettingUp = true;
+            myEnemyController.balanced = true;
+
+            if (myEnemyController.KnockedOut)
+            {
+                myEnemyController.DeactivateRagdoll();
+            }
         }
+
+
+        //myEnemyController.GettingUp = true;
+        //myEnemyController.balanced = true;
+        //if (myEnemyController.KnockedOut)
+        //{
+
+        //    myEnemyController.DeactivateRagdoll();
+        //}
         canDamage = true;
 
         StopCoroutine(recoverRoutine);
         recoverRoutine = null;
-        print("null");
+        //print("null");
 
     }
 
@@ -76,16 +80,29 @@ public class Enemy_Dunk : MonoBehaviour
         {
             OnDied();
         }
+        else
+        {
+            if (recoverRoutine != null)
+            {
+                //print("if");
+                StopCoroutine(recoverRoutine);
+            }
+            else
+            {
+                //print("coroutine start");
+                recoverRoutine = StartCoroutine(Recover());
+            }
+        }
     }
 
     public void OnDied()
     {
-       // myEnemyController.ActivateRagdoll();
-        //Destroy(this.gameObject, 3);
+        myEnemyController.ActivateRagdoll();
+        Destroy(this.gameObject, 3);
         isEnemyAlive = false;
         enemyRuntimeSet.Remove(this);
         // EnemyManager.eManager._listOfDiedEnemy.Add(this.gameObject);
-        EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
+        //EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
     }
     #endregion
 }

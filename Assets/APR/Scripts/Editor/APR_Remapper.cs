@@ -108,10 +108,7 @@ public class APR_Remapper : EditorWindow
     }
     
 	
-	void TutorialLink()
-	{
-		Help.BrowseURL("https://youtu.be/8vfDY7rON_0");
-	}
+	
 	
 	void OnGUI()
 	{
@@ -119,20 +116,7 @@ public class APR_Remapper : EditorWindow
         GUILayout.ExpandWidth (false);
 		
         EditorGUILayout.Space();
-        //GUILayout.Label(tex);
-		
-		//EditorGUILayout.Space();
-		//GUILayout.Label("Import the APR_Player into the scene, align and scale it to fit your model, then link the respective bones of your model below");
         
-  //      EditorGUILayout.Space();
-		//GUILayout.Label("Note: The APR_Player box model will represent your colliders aswell");
-		
-		//EditorGUILayout.Space();
-		//GUILayout.Label("Here is a tutorial video link of this process:");
-		//if(GUILayout.Button("Watch Tutorial Video"))
-		//{
-		//	TutorialLink();
-		//}
 		
 		
 		
