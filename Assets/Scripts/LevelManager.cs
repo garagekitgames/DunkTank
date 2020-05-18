@@ -32,6 +32,9 @@ public class LevelManager : MonoBehaviour
     public UnityEvent levelFailed;
 
 
+
+    public UnityEvent OnLevelFinished;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +42,7 @@ public class LevelManager : MonoBehaviour
             instance = this;
 
         levelFailed.AddListener(OnLevelFailed);
-        segmentFinished.AddListener(OnSegmentCompleted);
+        //segmentFinished.AddListener(OnSegmentCompleted);
         levelFinished.AddListener(OnLevelCompleted);
         PlaceSegments();
     }
@@ -92,7 +95,7 @@ public class LevelManager : MonoBehaviour
         currentSegmentObj = null;
     }
 
-    void OnSegmentCompleted()
+    public void OnSegmentCompleted()
     {
         currentSegmentCount += 1;
         currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];

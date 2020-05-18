@@ -17,6 +17,8 @@ public class EnemyManager : MonoBehaviour
     [Header("Event")]
     public UnityEvent allEnemiesDead;
 
+    public UnityEvent OnSegmentFinished;
+
     [Header("List")]
     private List<GameObject> _listOfEnemy = new List<GameObject>();
     public List<GameObject> _listOfDiedEnemy = new List<GameObject>();
@@ -88,10 +90,17 @@ public class EnemyManager : MonoBehaviour
         {
             allEnemiesDead.Invoke();
             enemyRuntimeSet.Items.Clear();
-            LevelManager.instance.segmentFinished.Invoke();
+            //LevelManager.instance.segmentFinished.Invoke();
+            OnSegmentFinished.Invoke();
+
         }
     }
-   
+
+    public void OnLevelCompleted()
+    {
+        Debug.Log("Mudinjiduchu");
+    }
+
     #endregion
 
 }
