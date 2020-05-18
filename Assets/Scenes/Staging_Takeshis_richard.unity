@@ -3598,6 +3598,9 @@ MonoBehaviour:
   allEnemiesDead:
     m_PersistentCalls:
       m_Calls: []
+  OnSegmentFinished:
+    m_PersistentCalls:
+      m_Calls: []
   _listOfDiedEnemy: []
 --- !u!4 &641033835
 Transform:
@@ -6320,6 +6323,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnLevelFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1157213924
 Transform:
   m_ObjectHideFlags: 0
@@ -7667,6 +7673,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
+        type: 3}
+      propertyPath: torque
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
+        type: 3}
+      propertyPath: maxForce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5146521326424781982, guid: a1c121e176203413b9daeb58f559a366,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7732,6 +7748,11 @@ PrefabInstance:
       propertyPath: m_CullingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3996581905089382344, guid: a1c121e176203413b9daeb58f559a366,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5146521327737160935, guid: a1c121e176203413b9daeb58f559a366,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
@@ -7771,21 +7792,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: 0.000000049617665
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
-        type: 3}
-      propertyPath: torque
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5146521326611012556, guid: a1c121e176203413b9daeb58f559a366,
-        type: 3}
-      propertyPath: maxForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3996581905089382344, guid: a1c121e176203413b9daeb58f559a366,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c121e176203413b9daeb58f559a366, type: 3}
