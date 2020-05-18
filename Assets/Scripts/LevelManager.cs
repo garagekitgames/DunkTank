@@ -75,7 +75,11 @@ public class LevelManager : MonoBehaviour
         //cam.transform.position = currentSegmentObj.cameraPosition.position;
         //cam.transform.eulerAngles = currentSegmentObj.cameraPosition.eulerAngles;
         //Spawn Enemies
-        EnemyManager.eManager.SpawnEnemies(10, currentSegmentObj.enemySpawnPoints);
+
+
+        //EnemyManager.eManager.SpawnEnemies(10, currentSegmentObj.enemySpawnPoints);
+        
+        
         //currentSegmentObj.enemies;
 
     }
