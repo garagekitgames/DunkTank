@@ -201,13 +201,6 @@ public class APRController : MonoBehaviour
     {
 
         //startMoveSpeed = MoveSpeed;
-        StartCoroutine(resetNavmesh());
-    }
-
-
-    IEnumerator resetNavmesh()
-    {
-        yield return new WaitForSeconds(1f);
         agent = this.GetComponent<NavMeshAgent>();//APR_Parts[0].GetComponent<NavMeshAgent>();// this.GetComponent<NavMeshAgent>();
         agent.enabled = true;
         agent.updatePosition = false;
@@ -215,7 +208,6 @@ public class APRController : MonoBehaviour
         agent.isStopped = false;
         agent.ResetPath();
         agent.SetDestination(target);
-
     }
 
     private void OnDisable()
@@ -236,6 +228,7 @@ public class APRController : MonoBehaviour
         this.agent.isStopped = true;
         this.agent.ResetPath();
         this.agent.enabled = false;
+        this.target = Vector3.zero;
        
     }
 
