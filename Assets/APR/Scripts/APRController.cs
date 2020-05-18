@@ -49,9 +49,9 @@ public class APRController : MonoBehaviour
     private bool StepLeft;
     private bool Alert_Leg_Right;
     private bool Alert_Leg_Left;
-	private bool balanced = true;
-	private bool GettingUp;
-	private bool KnockedOut;
+	public bool balanced = true;
+	public bool GettingUp;
+	public bool KnockedOut;
 	private bool isJumping;
 	private bool Jump;
 	private bool inAir;
@@ -237,7 +237,7 @@ public class APRController : MonoBehaviour
 
         //APR_Parts[0].GetComponent<Rigidbody>().AddForce(dirToMove.magnitude * dirToMove.normalized * 1000);
         agent.SetDestination(target.position);
-        if (canMove && balanced && !KnockedOut)
+        if (canMove)//(canMove && balanced && !KnockedOut)
         {
             //agent.isStopped = false;
 
@@ -280,13 +280,13 @@ public class APRController : MonoBehaviour
 
         if (tempVelocity >= 3f)
         {
-            Debug.Log("tempVelocity >= 2 : " + tempVelocity);
+           // Debug.Log("tempVelocity >= 2 : " + tempVelocity);
             agent.isStopped = true;
             //MoveSpeed = startMoveSpeed + tempVelocity * 0.5f;
         }
         else
         {
-            Debug.Log("tempVelocity < 2 : " + tempVelocity);
+           // Debug.Log("tempVelocity < 2 : " + tempVelocity);
             agent.isStopped = false;
         }
 

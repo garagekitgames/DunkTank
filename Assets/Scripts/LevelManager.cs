@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     List<Segment> currentlySpawnedSegments;
 
-    Segment currentSegmentObj;
+    public Segment currentSegmentObj;
 
     [Header("Events")]
     public UnityEvent segmentFinished;
@@ -72,10 +72,10 @@ public class LevelManager : MonoBehaviour
     {
         currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
         Camera cam = Camera.main;
-        cam.transform.position = currentSegmentObj.cameraPosition.position;
-        cam.transform.eulerAngles = currentSegmentObj.cameraPosition.eulerAngles;
+        //cam.transform.position = currentSegmentObj.cameraPosition.position;
+        //cam.transform.eulerAngles = currentSegmentObj.cameraPosition.eulerAngles;
         //Spawn Enemies
-        EnemyManager.eManager.SpawnEnemies(10, currentSegmentObj.enemySpawnPoints[1]);
+        EnemyManager.eManager.SpawnEnemies(10, currentSegmentObj.enemySpawnPoints);
         //currentSegmentObj.enemies;
 
     }

@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SpawnEnemies(5f, testPos);
+            //SpawnEnemies(5f, testPos);
         }
 
         if (Input.GetKeyDown(KeyCode.S))
@@ -44,14 +44,14 @@ public class EnemyManager : MonoBehaviour
 
     #region Enemy Spawn Function
 
-    public void SpawnEnemies(float _listOfEnemies, Transform pos)
+    public void SpawnEnemies(float _listOfEnemies, Transform[] pos)
     {
-        for (i = 0; i < _listOfEnemies; i++)
+        for (i = 0; i < pos.Length; i++)
         {
             GameObject temp = Instantiate(enemyPrefab);
          //   float x = Random.Range(-5, 5);
          //   float y = Random.Range(-5, 5);
-            temp.transform.position = pos.position;
+            temp.transform.position = pos[i].position;
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }
