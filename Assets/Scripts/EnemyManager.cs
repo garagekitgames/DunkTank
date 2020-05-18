@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using MyCompany.GameFramework.Pooling;
 
 public enum EnemyTypes {Level1,Level2,Level3 }
 
@@ -25,10 +26,13 @@ public class EnemyManager : MonoBehaviour
 
     private int i;
 
+    public ObjectPool enemyObjectPool;
 
     public void Start()
     {
+
         eManager = GetComponent<EnemyManager>();
+       
     }
 
     public void Update()
@@ -54,12 +58,14 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemies(EnemySpawnPoint[] _enemySpawnPoint)
     {
+        if(enemyObjectPool==null)
+        {
+            enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 20);
+        }
+
         for (i = 0; i < _enemySpawnPoint.Length; i++)
         {
-            GameObject temp = Instantiate(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].spawnPosition.position, Quaternion.identity);
-            //   float x = Random.Range(-5, 5);
-            //   float y = Random.Range(-5, 5);
-            //temp.transform.position = _enemySpawnPoint[i].spawnPosition.position;
+            GameObject temp = enemyObjectPool.InstantiateFromPool(_enemySpawnPoint[i].spawnPosition.position); //(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].spawnPosition.position, Quaternion.identity);
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }
@@ -108,6 +114,11 @@ public class EnemyManager : MonoBehaviour
             _listOfEnemy[i].SetActive(false);
         }
         enemyRuntimeSet.Items.Clear();
+    }
+
+    public void ReturnToPool(GameObject enemy)
+    {
+        enemyObjectPool.ReturnToPool(enemy);
     }
 
     #endregion

@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20002c07079e554cb47defbc8cebd0e, type: 3}
   m_Name: EnemyRuntimeSet
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

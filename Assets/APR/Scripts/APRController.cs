@@ -197,6 +197,48 @@ public class APRController : MonoBehaviour
         startMoveSpeed = MoveSpeed;
     }
 
+    private void OnEnable()
+    {
+
+        //startMoveSpeed = MoveSpeed;
+        StartCoroutine(resetNavmesh());
+    }
+
+
+    IEnumerator resetNavmesh()
+    {
+        yield return new WaitForSeconds(1f);
+        agent = this.GetComponent<NavMeshAgent>();//APR_Parts[0].GetComponent<NavMeshAgent>();// this.GetComponent<NavMeshAgent>();
+        agent.enabled = true;
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        agent.isStopped = false;
+        agent.ResetPath();
+        agent.SetDestination(target);
+
+    }
+
+    private void OnDisable()
+    {
+        if (!this.balanced && !this.isJumping)
+        {
+            this.GettingUp = true;
+            this.balanced = true;
+
+            if (this.KnockedOut)
+            {
+                this.DeactivateRagdoll();
+            }
+        }
+
+
+
+        this.agent.isStopped = true;
+        this.agent.ResetPath();
+        this.agent.enabled = false;
+       
+    }
+
     //Call Update Functions
     void Update()
     {
@@ -259,6 +301,7 @@ public class APRController : MonoBehaviour
 
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
         {
+            Debug.LogError("NoPath");
             canMove = false;
         }
         else 

@@ -15,11 +15,12 @@ public class Enemy_Dunk : MonoBehaviour
 
     public void OnSpawned()
     {
+        enemyHP = 100;
         isEnemyAlive = true;
         enemyRuntimeSet.Add(this);
-        //myEnemyController = this.GetComponent<AP>
-         myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
-       // Debug.LogError(LevelManager.instance.currentSegmentObj.goalObject.transform.position);
+        myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
+        //myEnemyController.DeactivateRagdoll();
+
     }
     #endregion
 
@@ -29,10 +30,6 @@ public class Enemy_Dunk : MonoBehaviour
         if (canDamage)
         {
             enemyHP -= damage;
-            //print("recoverRoutine "+ recoverRoutine);
-
-
-            
             CheckAlive();
         }
 
@@ -42,7 +39,6 @@ public class Enemy_Dunk : MonoBehaviour
 
     IEnumerator Recover()
     {
-        //print("begin");
 
         myEnemyController.ActivateRagdoll();
         canDamage = false;
@@ -57,21 +53,11 @@ public class Enemy_Dunk : MonoBehaviour
             {
                 myEnemyController.DeactivateRagdoll();
             }
-        }
-
-
-        //myEnemyController.GettingUp = true;
-        //myEnemyController.balanced = true;
-        //if (myEnemyController.KnockedOut)
-        //{
-
-        //    myEnemyController.DeactivateRagdoll();
-        //}
+        }       
         canDamage = true;
 
         StopCoroutine(recoverRoutine);
         recoverRoutine = null;
-        //print("null");
 
     }
 
@@ -85,12 +71,10 @@ public class Enemy_Dunk : MonoBehaviour
         {
             if (recoverRoutine != null)
             {
-                //print("if");
                 StopCoroutine(recoverRoutine);
             }
             else
             {
-                //print("coroutine start");
                 recoverRoutine = StartCoroutine(Recover());
             }
         }
@@ -101,10 +85,15 @@ public class Enemy_Dunk : MonoBehaviour
         myEnemyController.ActivateRagdoll();
         isEnemyAlive = false;
         enemyRuntimeSet.Remove(this);
-        //Destroy(this.gameObject, 3);
-        this.gameObject.SetActive(false);
-        // EnemyManager.eManager._listOfDiedEnemy.Add(this.gameObject);
         EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
+        Invoke("DisableEnemy", 3f);
+    }
+
+    public void DisableEnemy()
+    {
+       
+        EnemyManager.eManager.ReturnToPool(this.gameObject);
+        this.gameObject.SetActive(false);
     }
     #endregion
 }
