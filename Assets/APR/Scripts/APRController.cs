@@ -208,7 +208,7 @@ public class APRController : MonoBehaviour
         }
         else
         {
-            print(target);
+            //print(target);
             LookAtTarget();
             MoveTowardsTarget();
         }
