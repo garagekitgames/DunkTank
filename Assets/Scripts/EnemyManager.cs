@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum EnemyTypes {Level1,Level2,Level3 }
+
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager eManager;
 
+    [Header("Scriptable object")]
     public EnemyRuntimeSet enemyRuntimeSet;
+    public EnemyList enemyList;
+
+    [Header("Event")]
     public UnityEvent allEnemiesDead;
+
+    [Header("List")]
     private List<GameObject> _listOfEnemy = new List<GameObject>();
     public List<GameObject> _listOfDiedEnemy = new List<GameObject>();
+
     private int i;
-
-    public GameObject enemyPrefab;
-    public Transform testPos;
-
 
 
     public void Start()
@@ -44,18 +49,18 @@ public class EnemyManager : MonoBehaviour
 
     #region Enemy Spawn Function
 
-    public void SpawnEnemies(float _listOfEnemies, Transform[] pos)
-    {
-        for (i = 0; i < pos.Length; i++)
-        {
-            GameObject temp = Instantiate(enemyPrefab);
-         //   float x = Random.Range(-5, 5);
-         //   float y = Random.Range(-5, 5);
-            temp.transform.position = pos[i].position;
-            _listOfEnemy.Add(temp);
-            temp.GetComponent<Enemy_Dunk>().OnSpawned();
-        }
-    }
+    //public void SpawnEnemies(EnemySpawnScript[] NoOfSpawnPoints)
+    //{
+    //    for (i = 0; i < NoOfSpawnPoints.Length; i++)
+    //    {
+    //        GameObject temp = Instantiate(enemyPrefab);
+    //     //   float x = Random.Range(-5, 5);
+    //     //   float y = Random.Range(-5, 5);
+    //        temp.transform.position = pos[i].position;
+    //        _listOfEnemy.Add(temp);
+    //        temp.GetComponent<Enemy_Dunk>().OnSpawned();
+    //    }
+    //}
 
     #endregion
 

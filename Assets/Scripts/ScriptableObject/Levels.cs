@@ -11,4 +11,5 @@ public class Levels : ScriptableObject
     public string LevelName;
     public int level;
     public Sprite thumbnail;
+    
 }
