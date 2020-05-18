@@ -33,6 +33,12 @@ public class UIManager : MonoBehaviour
         levelCompleteUI.SetActive(true);
     }
 
+    public void OnLevelFailShowUI()
+    {
+        levelFailedUI.SetActive(true);
+    }
+
+
     public void GotoNextLevelButtonPressed()
     {
         levelCompleteUI.SetActive(false);
@@ -41,6 +47,7 @@ public class UIManager : MonoBehaviour
 
     public void ReplayLevelButtonPressed()
     {
-
+        levelFailedUI.SetActive(true);
+        ReplayLevel.Invoke();
     }
 }
