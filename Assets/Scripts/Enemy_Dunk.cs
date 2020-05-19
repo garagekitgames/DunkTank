@@ -14,6 +14,8 @@ public class Enemy_Dunk : MonoBehaviour
 
     bool canDamage = true;
     public Slider hpSlider;
+
+    public List<string> debugTest = new List<string>();
     #region Enemy Spawn 
 
     public void OnSpawned()
@@ -25,8 +27,9 @@ public class Enemy_Dunk : MonoBehaviour
         //myEnemyController.agent.isStopped = false;
         //myEnemyController.agent.ResetPath();
         myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
+        debugTest.Add("Spawned");
         //myEnemyController.DeactivateRagdoll();
-
+        CancelInvoke();
     }
     #endregion
 
@@ -38,13 +41,17 @@ public class Enemy_Dunk : MonoBehaviour
     
     #region Enemy Damage and life functions 
     public void OnDamage(float damage)
-    {        
-        if(isEnemyAlive)
+    {
+        if (isEnemyAlive)
         {
             enemyHP -= damage;
+            debugTest.Add("Damaged : " + enemyHP);
             CheckAlive();
+            
         }
-       
+
+        
+
     }
     public Coroutine recoverRoutine;
 
@@ -94,7 +101,7 @@ public class Enemy_Dunk : MonoBehaviour
             {
                 StopCoroutine(recoverRoutine);
             }
-           
+
             OnDied();
         }
     }
@@ -105,13 +112,21 @@ public class Enemy_Dunk : MonoBehaviour
         myEnemyController.ActivateRagdoll();    
         enemyRuntimeSet.Remove(this);
         EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
+        debugTest.Add("Dead");
         Invoke("DisableEnemy", 3f);
+        
     }
 
     public void DisableEnemy()
-    {       
+    {
         //EnemyManager.eManager.ReturnToPool(this.gameObject);
-        this.gameObject.SetActive(false);
+        
+        if(!isEnemyAlive)
+        {
+            debugTest.Add("Disabled");
+            this.gameObject.SetActive(false);
+        }
+        
     }
     #endregion
 }

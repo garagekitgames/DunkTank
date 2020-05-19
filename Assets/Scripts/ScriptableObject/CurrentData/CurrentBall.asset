@@ -21,3 +21,4 @@ MonoBehaviour:
   thumbnail: {fileID: 0}
   ballPrefab: {fileID: 0}
   reloadingTime: 0.2
+  prefabName: 

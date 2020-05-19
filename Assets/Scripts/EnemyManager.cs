@@ -65,7 +65,7 @@ public class EnemyManager : MonoBehaviour
         {
             //enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 60, true);
 
-            enemyObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), GetTheEnemy(_enemySpawnPoint[i].enemyType).name, 4, true, true, true);
+            enemyObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), GetTheEnemy(_enemySpawnPoint[i].enemyType).name, 16, true, true, true);
         }
 
         for (i = 0; i < _enemySpawnPoint.Length; i++)
