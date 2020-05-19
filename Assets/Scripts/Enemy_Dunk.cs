@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Enemy_Dunk : MonoBehaviour
 {
     public float enemyHP;
+    public float startingHealth;
     public bool isEnemyAlive;
     public EnemyRuntimeSet enemyRuntimeSet;
     public APRController myEnemyController;
@@ -18,6 +19,7 @@ public class Enemy_Dunk : MonoBehaviour
     public void OnSpawned()
     {
         enemyHP = 100;
+        startingHealth = 100;
         isEnemyAlive = true;
         enemyRuntimeSet.Add(this);
         //myEnemyController.agent.isStopped = false;
@@ -33,18 +35,16 @@ public class Enemy_Dunk : MonoBehaviour
         hpSlider.value = enemyHP / 100;
         hpSlider.transform.LookAt(Camera.main.transform);
     }
+    
     #region Enemy Damage and life functions 
     public void OnDamage(float damage)
-    {
-       
-
-        
+    {        
+        if(isEnemyAlive)
+        {
             enemyHP -= damage;
-       
             CheckAlive();
+        }
        
-
-
     }
     public Coroutine recoverRoutine;
 
@@ -74,11 +74,7 @@ public class Enemy_Dunk : MonoBehaviour
 
     public void CheckAlive()
     {
-        if (enemyHP <= 0)
-        {
-            OnDied();
-        }
-        else
+        if (!(enemyHP <= 0))
         {
             if (canDamage)
             {
@@ -91,22 +87,29 @@ public class Enemy_Dunk : MonoBehaviour
                     recoverRoutine = StartCoroutine(Recover());
                 }
             }
-               
+        }
+        else
+        {
+            if (recoverRoutine != null)
+            {
+                StopCoroutine(recoverRoutine);
+            }
+           
+            OnDied();
         }
     }
 
     public void OnDied()
     {
-        myEnemyController.ActivateRagdoll();
         isEnemyAlive = false;
+        myEnemyController.ActivateRagdoll();    
         enemyRuntimeSet.Remove(this);
         EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
         Invoke("DisableEnemy", 3f);
     }
 
     public void DisableEnemy()
-    {
-       
+    {       
         //EnemyManager.eManager.ReturnToPool(this.gameObject);
         this.gameObject.SetActive(false);
     }

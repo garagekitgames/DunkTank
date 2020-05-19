@@ -48,8 +48,7 @@ public class Thrower : MonoBehaviour
     }
 
     public IEnumerator ReturnObjectToPool(GameObject ball)
-    {
-        
+    {        
         yield return new WaitForSeconds(3f);
         ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
         ball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;

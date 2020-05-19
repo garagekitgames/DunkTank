@@ -14,4 +14,5 @@ public class Balls : ScriptableObject
     public Sprite thumbnail;
     public GameObject ballPrefab;
     public float reloadingTime;
+    public string prefabName;
 }
