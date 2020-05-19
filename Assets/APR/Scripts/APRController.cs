@@ -124,8 +124,11 @@ public class APRController : MonoBehaviour
 
     void Awake()
 	{
-		//Setup joint drives
-		BalanceOn = new JointDrive();
+        agent = this.GetComponent<NavMeshAgent>();//APR_Parts[0].GetComponent<NavMeshAgent>();// this.GetComponent<NavMeshAgent>();
+        agent.updatePosition = false;
+        agent.updateRotation = false;
+        //Setup joint drives
+        BalanceOn = new JointDrive();
         BalanceOn.positionSpring = 5000;
         BalanceOn.positionDamper = 300;
         BalanceOn.maximumForce = Mathf.Infinity;
@@ -199,15 +202,24 @@ public class APRController : MonoBehaviour
 
     private void OnEnable()
     {
+        agent.enabled = true;
+       
+        //agent.isStopped = false;
+        //agent.ResetPath();
 
         //startMoveSpeed = MoveSpeed;
-        agent = this.GetComponent<NavMeshAgent>();//APR_Parts[0].GetComponent<NavMeshAgent>();// this.GetComponent<NavMeshAgent>();
-        agent.enabled = true;
-        agent.updatePosition = false;
-        agent.updateRotation = false;
-        agent.isStopped = false;
-        agent.ResetPath();
-        agent.SetDestination(target);
+       // agent.Warp(this.transform.position);
+
+        StartCoroutine(navmeshEnable());
+    }
+
+    IEnumerator navmeshEnable()
+    {
+        yield return new WaitForSeconds(0.5f);
+        //agent.isStopped = false;
+       //agent.ResetPath();
+       // agent.SetDestination(target);
+
     }
 
     private void OnDisable()
@@ -225,11 +237,15 @@ public class APRController : MonoBehaviour
 
 
 
-        this.agent.isStopped = true;
-        this.agent.ResetPath();
+        //this.agent.isStopped = true;
+        //this.agent.ResetPath();
         this.agent.enabled = false;
-        this.target = Vector3.zero;
-       
+       // this.target = APR_Parts[0].transform.position;
+        //agent.Warp(this.transform.position);
+
+        //this.transform.position = Vector3.zero;
+        //APR_Parts[0].transform.position = Vector3.zero;
+
     }
 
     //Call Update Functions
@@ -244,8 +260,13 @@ public class APRController : MonoBehaviour
         else
         {
             //print(target);
-            LookAtTarget();
-            MoveTowardsTarget();
+            
+            if (agent.isActiveAndEnabled)
+            {
+                LookAtTarget();
+                MoveTowardsTarget();
+            }
+           
         }
         
         if(!KnockedOut)
@@ -294,7 +315,7 @@ public class APRController : MonoBehaviour
 
         if (agent.remainingDistance <= agent.stoppingDistance && !agent.pathPending)
         {
-            Debug.LogError("NoPath");
+           // Debug.LogError("NoPath");
             canMove = false;
         }
         else 
@@ -319,7 +340,7 @@ public class APRController : MonoBehaviour
         {
            // Debug.Log("tempVelocity >= 2 : " + tempVelocity);
             agent.isStopped = true;
-            //MoveSpeed = startMoveSpeed + tempVelocity * 0.5f;
+            MoveSpeed = startMoveSpeed + tempVelocity * 0.5f;
         }
         else
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
 using MyCompany.GameFramework.Pooling;
-
+using EZObjectPools;
 public enum EnemyTypes {Level1,Level2,Level3 }
 
 public class EnemyManager : MonoBehaviour
@@ -26,7 +26,10 @@ public class EnemyManager : MonoBehaviour
 
     private int i;
 
-    public ObjectPool enemyObjectPool;
+    //public ObjectPool enemyObjectPool;
+
+
+    EZObjectPool enemyObjectPool = new EZObjectPool();
 
     public void Start()
     {
@@ -60,12 +63,20 @@ public class EnemyManager : MonoBehaviour
     {
         if(enemyObjectPool==null)
         {
-            enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 60, true);
+            //enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 60, true);
+
+            enemyObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), GetTheEnemy(_enemySpawnPoint[i].enemyType).name, 4, true, true, true);
         }
 
         for (i = 0; i < _enemySpawnPoint.Length; i++)
         {
-            GameObject temp = enemyObjectPool.InstantiateFromPool(_enemySpawnPoint[i].spawnPosition.position); //(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].spawnPosition.position, Quaternion.identity);
+
+            GameObject temp;
+            //Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
+            enemyObjectPool.TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
+
+
+           // GameObject temp = enemyObjectPool.InstantiateFromPool(_enemySpawnPoint[i].spawnPosition.position); //(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].spawnPosition.position, Quaternion.identity);
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }
@@ -116,10 +127,15 @@ public class EnemyManager : MonoBehaviour
         enemyRuntimeSet.Items.Clear();
     }
 
-    public void ReturnToPool(GameObject enemy)
+    private void OnApplicationQuit()
     {
-        enemyObjectPool.ReturnToPool(enemy);
+        enemyRuntimeSet.Items.Clear();
     }
+
+    //public void ReturnToPool(GameObject enemy)
+    //{
+    //    enemyObjectPool.ReturnToPool(enemy);
+    //}
 
     #endregion
 

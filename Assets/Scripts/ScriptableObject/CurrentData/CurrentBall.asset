@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fed788fffeccbe48b657ff43915be98, type: 3}
   m_Name: CurrentBall
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
   ammo: 3
   unLockBallAtLevel: 0
   ballLevel: 0

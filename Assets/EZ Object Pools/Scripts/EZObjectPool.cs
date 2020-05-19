@@ -190,7 +190,7 @@ namespace EZObjectPools
 
             if (AutoResize)
             {
-                GameObject g = NewActiveObject();
+                GameObject g = NewActiveObject(pos, rot);
                 g.transform.position = pos;
                 g.transform.rotation = rot;
                 ObjectList.Add(g);
@@ -235,11 +235,26 @@ namespace EZObjectPools
 
             if (AutoResize)
             {
-                GameObject g = NewActiveObject();
+                GameObject g = NewActiveObject(pos, rot);
                 g.transform.position = pos;
                 g.transform.rotation = rot;
                 ObjectList.Add(g);
             }
+        }
+
+        GameObject NewActiveObject(Vector3 pos, Quaternion rot)
+        {
+            GameObject g = (GameObject)Instantiate(Template, pos, rot);
+            //g.transform.parent = transform;
+
+            PooledObject p = g.GetComponent<PooledObject>();
+
+            if (p)
+                p.ParentPool = this;
+            else
+                g.AddComponent<PooledObject>().ParentPool = this;
+
+            return g;
         }
 
         GameObject NewActiveObject()

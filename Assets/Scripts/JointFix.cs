@@ -8,14 +8,17 @@ public class JointFix : MonoBehaviour {
      ConfigurableJoint joint;
      Vector3 jointAnchor;
     Vector3 jointNormalAnchor;
+    Rigidbody myRb;
     Quaternion strtRot;
     // Use this for initialization
     public bool hip;
     bool started =  false;
-    void Start () {
+    void Awake () {
 
         strtPos = transform.localPosition;
         strtRot = transform.localRotation;
+
+        myRb = transform.GetComponent<Rigidbody>();
 
         joint = transform.GetComponent<ConfigurableJoint>();
 
@@ -30,7 +33,37 @@ public class JointFix : MonoBehaviour {
 
     void OnDisable()
     {
+        if (!started)
+            return;
         //Debug.Log("PrintOnDisable: script was disabled");
+        if (myRb)
+        {
+            myRb.velocity = Vector3.zero;
+            myRb.angularVelocity = Vector3.zero;
+
+        }
+
+        //Debug.Log("PrintOnEnable: script was enabled");
+        //if (strtPos == Vector3.zero) return;
+
+        //if(!hip)
+        //{
+        transform.localPosition = strtPos;
+        transform.localRotation = strtRot;
+        //}
+
+        if (myRb)
+        {
+            myRb.velocity = Vector3.zero;
+            myRb.angularVelocity = Vector3.zero;
+
+        }
+        if (joint)
+        {
+            joint.connectedAnchor = jointAnchor;
+            joint.anchor = jointNormalAnchor;
+            joint.autoConfigureConnectedAnchor = false;
+        }
     }
 
     
@@ -42,13 +75,18 @@ public class JointFix : MonoBehaviour {
         //Debug.Log("PrintOnEnable: script was enabled");
         //if (strtPos == Vector3.zero) return;
 
-        if(!hip)
-        {
+        //if(!hip)
+        //{
             transform.localPosition = strtPos;
             transform.localRotation = strtRot;
-        }
+        //}
        
+        if(myRb)
+        {
+            myRb.velocity = Vector3.zero;
+            myRb.angularVelocity = Vector3.zero;
 
+        }
         if(joint)
         {
             joint.connectedAnchor = jointAnchor;
