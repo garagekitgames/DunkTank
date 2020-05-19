@@ -6,8 +6,8 @@ public class GameManager : Singleton
 {
 
     [Header("Scritable Objects")]
-    public Balls currentBall;
-    public Levels currentLevel;
+    public BallInfo currentBall;
+    public LevelInfo currentLevel;
 
     [Header("Variables")]
     public int coinsWonInThisRound;

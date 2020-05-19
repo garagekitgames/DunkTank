@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Boss 2
   m_EditorClassIdentifier: 
   enemyType: 0
-  enemyName: 
+  enemyDataName: Boss 2
   level: 0
-  thumbnail: {fileID: 0}
   hp: 0
-  enemyPrefab: {fileID: 0}

@@ -22,7 +22,7 @@ public class ThrowInput : MonoBehaviour
     public BallReleaseType ballReleaseType;
     private bool isReloading;
 
-    public Balls currentBall;
+    public BallInfo currentBall;
     public int ballReleaseCount;
 
     private void Update()

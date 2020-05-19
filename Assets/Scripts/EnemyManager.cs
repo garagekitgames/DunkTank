@@ -31,11 +31,12 @@ public class EnemyManager : MonoBehaviour
 
     EZObjectPool enemyObjectPool = new EZObjectPool();
 
+    public List<EZObjectPool> curObjectPool = new List<EZObjectPool>();
+    public List<EZObjectPool> prevObjectPool = new List<EZObjectPool>();
+
     public void Start()
     {
-
-        eManager = GetComponent<EnemyManager>();
-       
+        eManager = GetComponent<EnemyManager>();  
     }
 
     public void Update()
@@ -61,22 +62,21 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnEnemies(EnemySpawnPoint[] _enemySpawnPoint)
     {
-        if(enemyObjectPool==null)
+        if (enemyObjectPool == null)
         {
-            //enemyObjectPool = new ObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), 60, true);
-
             enemyObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), GetTheEnemy(_enemySpawnPoint[i].enemyType).name, 16, true, true, true);
         }
 
+        //foreach(var enemies in _enemySpawnPoint)
+        //{
+
+        //}
+
+
         for (i = 0; i < _enemySpawnPoint.Length; i++)
         {
-
             GameObject temp;
-            //Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
             enemyObjectPool.TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
-
-
-           // GameObject temp = enemyObjectPool.InstantiateFromPool(_enemySpawnPoint[i].spawnPosition.position); //(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].spawnPosition.position, Quaternion.identity);
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }
@@ -84,8 +84,10 @@ public class EnemyManager : MonoBehaviour
 
     GameObject GetTheEnemy(EnemyTypes _reqdType)
     {
-        EnemyScriptableObject enemy = enemyList._listOfEnemies.ToList().Where(x => x.enemyType == _reqdType).First();
-        return enemy.enemyPrefab;
+        EnemyInfo enemy = enemyList._listOfEnemies.ToList().Where(x => x.enemyType == _reqdType).First();
+        EnemyData tempEnemyData = Resources.Load<EnemyData>("EnemyData/" + enemy.enemyDataName);
+
+        return tempEnemyData.enemyPrefab;
     }
 
     #endregion

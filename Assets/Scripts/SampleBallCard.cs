@@ -6,7 +6,7 @@ public class SampleBallCard : MonoBehaviour
     public Image thumbnailImg;
     public Text coinTxt;
     public GameObject myBall;
-    public Balls myProperties;
+    public BallInfo myProperties;
 
     public void OnClickMyBall()
     {

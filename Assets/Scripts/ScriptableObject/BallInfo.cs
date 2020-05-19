@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Create Ball", menuName = "ScriptableObjects/Ball", order = 1)]
-public class Balls : ScriptableObject
+[CreateAssetMenu(fileName = "Create Ball", menuName = "ScriptableObjects/Ball Info", order = 1)]
+public class BallInfo : ScriptableObject
 {
     public float damage;
     public int ammo;
@@ -11,8 +11,6 @@ public class Balls : ScriptableObject
     public int ballLevel;
     public int ballMaxLevel;
     public int coinsToBuyBall;
-    public Sprite thumbnail;
-    public GameObject ballPrefab;
     public float reloadingTime;
-    public string prefabName;
+    public string ballDataName;
 }
