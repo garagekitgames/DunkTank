@@ -2221,7 +2221,7 @@ MonoBehaviour:
   playButton: {fileID: 1102792886}
   endPoint: {fileID: 350617430}
   startPoint: {fileID: 1470826601}
-  curMethod: 2
+  curMethod: 0
 --- !u!4 &1856144919
 Transform:
   m_ObjectHideFlags: 0

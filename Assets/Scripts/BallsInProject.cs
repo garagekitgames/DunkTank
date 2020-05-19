@@ -7,7 +7,7 @@ public class BallsInProject : MonoBehaviour
 {
     public static BallsInProject instance;
 
-    public List<Balls> _listOfBalls = new List<Balls>();
+    public List<BallInfo> _listOfBalls = new List<BallInfo>();
 
     public GameObject scrollBar;
     public GameObject ballPanel;
@@ -37,9 +37,10 @@ public class BallsInProject : MonoBehaviour
         {
             SampleBallCard temp = Instantiate(sampleCard, scrollBar.transform);
             temp.transform.SetParent(scrollBar.transform);
-            temp.thumbnailImg.sprite = _listOfBalls[i].thumbnail;
-            temp.myBall = _listOfBalls[i].ballPrefab;
             temp.myProperties = _listOfBalls[i];
+            BallData tempData = Resources.Load<BallData>("BallData/" + _listOfBalls[i].ballDataName);
+            temp.thumbnailImg.sprite = tempData.thumbnail;
+            temp.myBall = tempData.ballPrefab;
             _listOfSpawnedCards.Add(temp);
         }
     }

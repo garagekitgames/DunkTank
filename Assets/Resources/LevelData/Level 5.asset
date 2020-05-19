@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea1065e24eb15574c9833dcf53891c9b, type: 3}
-  m_Name: Enemy 4
+  m_Script: {fileID: 11500000, guid: c858ad8ce83d15b4ea860c484676e1c6, type: 3}
+  m_Name: Level 4
   m_EditorClassIdentifier: 
-  enemyType: 0
-  enemyDataName: Enemy 4
-  level: 0
-  hp: 100
+  thumbnail: {fileID: 0}
