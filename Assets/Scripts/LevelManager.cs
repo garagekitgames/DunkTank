@@ -1,8 +1,8 @@
-﻿using System.Collections;
+﻿using SO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using SO;
+
 public class LevelManager : MonoBehaviour
 {
 
@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     private int currentSegmentCount = 0;
 
     [SerializeField]
-    Vector3 initialSegmentSpawnPoint;
+    private Vector3 initialSegmentSpawnPoint;
 
     public int segmentsPerLevel;
     public float distanceBetweenSegments;
@@ -23,68 +23,97 @@ public class LevelManager : MonoBehaviour
     public Segment[] hardSegments;
 
     [SerializeField]
-    List<Segment> currentlySpawnedSegments;
+    private List<Segment> currentlySpawnedSegments;
 
     public Segment currentSegmentObj;
 
     [Header("Events")]
-    //public UnityEvent segmentFinished;
-    //public UnityEvent levelFinished;
     public UnityEvent levelFailed;
-
-
-
     public UnityEvent OnLevelFinished;
+    private Dictionary<EnemyTypes, int> enemyType_Dic =
+                       new Dictionary<EnemyTypes, int>();
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         if (instance == null)
+        {
             instance = this;
+        }
 
         //levelFailed.AddListener(OnLevelFailed);
         //segmentFinished.AddListener(OnSegmentCompleted);
         //levelFinished.AddListener(OnLevelCompleted);
         PlaceSegments();
+       
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
     }
 
-    void PlaceSegments()
+    private void PlaceSegments()
     {
         //Initial Spawn
         GameObject initialSegment = Instantiate(easySegments[0].gameObject, initialSegmentSpawnPoint, Quaternion.identity);
         currentlySpawnedSegments.Add(initialSegment.GetComponent<Segment>());
 
-        for(int i = 1; i < segmentsPerLevel; i++)
+        for (int i = 1; i < segmentsPerLevel; i++)
         {
             Vector3 newPosition = currentlySpawnedSegments[i - 1].transform.position;
             newPosition.z += distanceBetweenSegments;
-            GameObject obj = Instantiate(easySegments[Random.Range(0,easySegments.Length)].gameObject, newPosition, Quaternion.identity);
+            GameObject obj = Instantiate(easySegments[UnityEngine.Random.Range(0, easySegments.Length)].gameObject, newPosition, Quaternion.identity);
             currentlySpawnedSegments.Add(obj.GetComponent<Segment>());
         }
+
+        GetAllEnemyTypes();
+        EnemyManager.eManager.SetUpEnemyPools(enemyType_Dic);
 
         EnableCurrentSegment();
     }
 
-
-    void EnableCurrentSegment()
+    private void EnableCurrentSegment()
     {
         currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
         Camera cam = Camera.main;
-        //cam.transform.position = currentSegmentObj.cameraPosition.position;
-        //cam.transform.eulerAngles = currentSegmentObj.cameraPosition.eulerAngles;
+       
         //Spawn Enemies
 
 
         EnemyManager.eManager.SpawnEnemies(currentSegmentObj.enemySpawnPoints);
-        
-        
+
+
         //currentSegmentObj.enemies;
+
+    }
+
+    public void GetAllEnemyTypes()
+    {
+        foreach (Segment segment in currentlySpawnedSegments)
+        {
+            foreach (EnemySpawnPoint spawnPoint in segment.enemySpawnPoints)
+            {
+                if (enemyType_Dic.ContainsKey(spawnPoint.enemyType))
+                {
+                    enemyType_Dic[spawnPoint.enemyType] = enemyType_Dic[spawnPoint.enemyType] + 1;
+                }
+                else
+                {
+                    enemyType_Dic.Add(spawnPoint.enemyType, 1);
+                }
+                //get enemy types 
+
+                //  Debug.Log(enemyType_Dic);
+
+            }
+        }
+
+      
+        foreach (KeyValuePair<EnemyTypes, int> item in enemyType_Dic)
+        {
+            Debug.Log("key  : " + item.Key + " Value : " + item.Value);
+        }
 
     }
 
@@ -106,8 +135,8 @@ public class LevelManager : MonoBehaviour
     public void OnSegmentCompleted()
     {
         currentSegmentCount += 1;
-        
-        if(currentSegmentCount < segmentsPerLevel)
+
+        if (currentSegmentCount < segmentsPerLevel)
         {
             currentSegmentObj = currentlySpawnedSegments[currentSegmentCount];
             EnableCurrentSegment();
@@ -119,7 +148,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public  void RestartLevel()
+    public void RestartLevel()
     {
         //Show UI.
         //Destroy all enemeies

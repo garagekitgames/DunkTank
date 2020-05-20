@@ -31,12 +31,12 @@ public class EnemyManager : MonoBehaviour
 
     EZObjectPool enemyObjectPool = new EZObjectPool();
 
-    public List<EZObjectPool> curObjectPool = new List<EZObjectPool>();
+    public Dictionary<EnemyTypes, EZObjectPool> curObjectPool = new Dictionary<EnemyTypes, EZObjectPool>();
     public List<EZObjectPool> prevObjectPool = new List<EZObjectPool>();
 
     public void Start()
     {
-        eManager = GetComponent<EnemyManager>();  
+        eManager = GetComponent<EnemyManager>();
     }
 
     public void Update()
@@ -61,26 +61,29 @@ public class EnemyManager : MonoBehaviour
     #region Enemy Spawn Function
 
     public void SpawnEnemies(EnemySpawnPoint[] _enemySpawnPoint)
-    {
-        if (enemyObjectPool == null)
-        {
-            enemyObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(_enemySpawnPoint[i].enemyType), GetTheEnemy(_enemySpawnPoint[i].enemyType).name, 16, true, true, true);
-        }
-
-        //foreach(var enemies in _enemySpawnPoint)
-        //{
-
-        //}
-
+    {       
 
         for (i = 0; i < _enemySpawnPoint.Length; i++)
         {
             GameObject temp;
-            enemyObjectPool.TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
+            curObjectPool[_enemySpawnPoint[i].enemyType].TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
+           // enemyObjectPool.TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
             _listOfEnemy.Add(temp);
             temp.GetComponent<Enemy_Dunk>().OnSpawned();
         }
     }
+
+
+    public void SetUpEnemyPools(Dictionary<EnemyTypes,int> enemyTypes)
+    {
+        foreach (var enemy in enemyTypes)
+        {
+            EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, enemy.Value, true, true, true);
+            curObjectPool.Add(enemy.Key, newObjectPool);
+        }
+    }
+
+
 
     GameObject GetTheEnemy(EnemyTypes _reqdType)
     {
