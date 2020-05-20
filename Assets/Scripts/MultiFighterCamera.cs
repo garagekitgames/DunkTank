@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using garagekitgames;
+using System.Linq;
 public class MultiFighterCamera : MonoBehaviour
 {
     public float updateFrequency = 0.2f;
@@ -54,9 +55,9 @@ public class MultiFighterCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        
-            this.UpdateCamera();
-       
+
+        this.UpdateCamera();
+
     }
 
     private void UpdateCamera()
@@ -95,12 +96,15 @@ public class MultiFighterCamera : MonoBehaviour
                 flag = true;
             }
         }*/
-        if (!flag && array.Length > 0)
+
+        var enemy = array.Where(t => t.transform.root.GetComponent<Enemy_Dunk>().isEnemyAlive == true).ToArray();//.OrderBy(t => Vector3.Distance(player.position, t.transform.position)).FirstOrDefault();
+
+        if (!flag && enemy.Length > 0)
         {
-            this.targets = new Transform[array.Length];
-            for (int j = 0; j < array.Length; j++)
+            this.targets = new Transform[enemy.Length];
+            for (int j = 0; j < enemy.Length; j++)
             {
-                this.targets[j] = array[j].transform;
+                this.targets[j] = enemy[j].transform;
             }
         }
     }

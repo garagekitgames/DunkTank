@@ -16,10 +16,23 @@ public class KillZone : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            var hp = other.transform.root.GetComponent<Enemy_Dunk>();
+            if (hp)
+            {
+                hp.OnDamage(1000f);
+            }
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
+
             //Destroy(collision.gameObject);
         }
     }

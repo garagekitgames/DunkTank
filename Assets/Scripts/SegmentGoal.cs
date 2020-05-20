@@ -20,8 +20,16 @@ public class SegmentGoal : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Failed");
-            LevelManager.instance.levelFailed.Invoke();
+            var hp = other.transform.root.GetComponent<Enemy_Dunk>();
+            if (hp)
+            {
+                if(hp.isEnemyAlive)
+                {
+                    Debug.Log("Failed");
+                    LevelManager.instance.levelFailed.Invoke();
+                }
+            }
+                
         }
     }
 }

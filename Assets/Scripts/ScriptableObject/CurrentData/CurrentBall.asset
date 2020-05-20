@@ -18,7 +18,5 @@ MonoBehaviour:
   ballLevel: 0
   ballMaxLevel: 0
   coinsToBuyBall: 0
-  thumbnail: {fileID: 0}
-  ballPrefab: {fileID: 0}
-  reloadingTime: 0
-  prefabName: 
+  reloadingTime: 0.1
+  ballDataName: 
