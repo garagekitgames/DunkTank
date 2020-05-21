@@ -18,6 +18,19 @@ public class LevelManager : MonoBehaviour
     public int segmentsPerLevel;
     public float distanceBetweenSegments;
 
+    [Header("Segments")]
+    public Segment[] firstSet;
+    public Segment[] secondSet;
+    public Segment[] thirdSet;
+    public Segment[] fourthSet;
+    public Segment[] fifthSet;
+    public Segment[] sixthSet;
+    public Segment[] seventhSet;
+    public Segment[] eighthSet;
+    public Segment[] ninthSet;
+    public Segment[] tenthSet;
+    public Segment[] finalSet;
+    
     public Segment[] easySegments;
     public Segment[] mediocreSegments;
     public Segment[] hardSegments;
@@ -40,10 +53,8 @@ public class LevelManager : MonoBehaviour
             instance = this;
         }
 
-        //levelFailed.AddListener(OnLevelFailed);
-        //segmentFinished.AddListener(OnSegmentCompleted);
-        //levelFinished.AddListener(OnLevelCompleted);
         PlaceSegments();
+        
        
     }
 
@@ -55,15 +66,18 @@ public class LevelManager : MonoBehaviour
 
     private void PlaceSegments()
     {
+
+        Segment[] segmentsToSpawn = ChooseSegments(_currentLevel.value);
+
         //Initial Spawn
-        GameObject initialSegment = Instantiate(easySegments[0].gameObject, initialSegmentSpawnPoint, Quaternion.identity);
+        GameObject initialSegment = Instantiate(segmentsToSpawn[0].gameObject, initialSegmentSpawnPoint, Quaternion.identity);
         currentlySpawnedSegments.Add(initialSegment.GetComponent<Segment>());
 
         for (int i = 1; i < segmentsPerLevel; i++)
         {
             Vector3 newPosition = currentlySpawnedSegments[i - 1].transform.position;
             newPosition.z += distanceBetweenSegments;
-            GameObject obj = Instantiate(easySegments[UnityEngine.Random.Range(0, easySegments.Length)].gameObject, newPosition, Quaternion.identity);
+            GameObject obj = Instantiate(segmentsToSpawn[Random.Range(0, easySegments.Length)].gameObject, newPosition, Quaternion.identity);
             currentlySpawnedSegments.Add(obj.GetComponent<Segment>());
         }
 
@@ -71,6 +85,44 @@ public class LevelManager : MonoBehaviour
         EnemyManager.eManager.SetUpEnemyPools(enemyType_Dic);
 
         EnableCurrentSegment();
+    }
+
+    Segment[] ChooseSegments(int _levelNum)
+    {
+        Segment[] segmentToReturn = new Segment[segmentsPerLevel];
+
+        switch (_levelNum)
+        {
+            case int n when (n <= 10):
+                for (int i = 0; i < segmentsPerLevel; i++)
+                {
+                    segmentToReturn[i] = firstSet[Random.Range(0, firstSet.Length)];
+                }
+                break;
+
+            case int n when (n <= 20 && n >= 11):
+                for (int i = 0; i < segmentsPerLevel; i++)
+                {
+                    segmentToReturn[i] = secondSet[Random.Range(0, secondSet.Length)];
+                }
+                break;
+
+            case int n when (n < 30 && n >= 21):
+                for (int i = 0; i < segmentsPerLevel; i++)
+                {
+                    segmentToReturn[i] = thirdSet[Random.Range(0, thirdSet.Length)];
+                }
+                break;
+
+            default:
+                for (int i = 0; i < segmentsPerLevel; i++)
+                {
+                    segmentToReturn[i] = thirdSet[Random.Range(0, thirdSet.Length)];
+                }
+                break;
+        }
+
+        return segmentToReturn;
     }
 
     private void EnableCurrentSegment()
@@ -119,7 +171,8 @@ public class LevelManager : MonoBehaviour
 
     public void OnGotoNextLevelSuccess()
     {
-        currentLevel += 1;
+        //currentLevel += 1;
+        _currentLevel.value += 1;
         currentSegmentCount = 0;
         for (int i = 0; i < currentlySpawnedSegments.Count; i++)
         {
@@ -143,6 +196,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            _currentLevel.value += 1;
             OnLevelFinished.Invoke();
             //OnLevelCompleted();
         }

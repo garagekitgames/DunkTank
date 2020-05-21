@@ -2639,15 +2639,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3212994448876713226, guid: 329e696a2fc20425ba73da9b364cc8d8,
-        type: 3}
-      propertyPath: useControls
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1034719186, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
-      propertyPath: isEnemyAlive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1696210970, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2672,6 +2663,15 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 601542044}
+    - target: {fileID: 3212994448876713226, guid: 329e696a2fc20425ba73da9b364cc8d8,
+        type: 3}
+      propertyPath: useControls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034719186, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
+      propertyPath: isEnemyAlive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
 --- !u!1 &755009891
@@ -4263,11 +4263,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd437d01034cef4bb339e67a81c2532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLevel: {fileID: 0}
+  _currentLevel: {fileID: 11400000, guid: ffc688fdf01c848c8ac8e16505ba88bb, type: 2}
   currentLevel: 0
   initialSegmentSpawnPoint: {x: 0, y: 1.6, z: -6}
   segmentsPerLevel: 3
   distanceBetweenSegments: 120
+  firstSet:
+  - {fileID: 4525973054214970933, guid: bb04a535ecbbf1c4989ecab1e950e161, type: 3}
+  - {fileID: 8424456989994007053, guid: 250d3d13a18079d46ad783aacc1156a2, type: 3}
+  - {fileID: 3831115789862349728, guid: 1fe9f4cc5d16a6a47a4ab3a866277c94, type: 3}
+  secondSet: []
+  thirdSet: []
+  fourthSet: []
+  fifthSet: []
+  sixthSet: []
+  seventhSet: []
+  eighthSet: []
+  ninthSet: []
+  tenthSet: []
+  finalSet: []
   easySegments:
   - {fileID: 1156251899794956115, guid: 662eda0e7f0dfdd41bd09d82da019002, type: 3}
   - {fileID: 1156251899794956115, guid: 662eda0e7f0dfdd41bd09d82da019002, type: 3}
@@ -7348,16 +7362,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
-        type: 3}
-      propertyPath: m_Name
-      value: Trap_Hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2403235588370391620, guid: ddf690df0625d425781e5daef9af4443,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7411,6 +7415,16 @@ PrefabInstance:
     - target: {fileID: 2403235588370391620, guid: ddf690df0625d425781e5daef9af4443,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
+        type: 3}
+      propertyPath: m_Name
+      value: Trap_Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
