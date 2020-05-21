@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 93616038}
   m_Layer: 8
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 129444935}
   m_Layer: 8
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 447667377}
   m_Layer: 8
   m_Name: Fill Area
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 564240655}
   m_Layer: 8
   m_Name: Handle Slide Area
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 678077771}
   m_Layer: 8
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 1696210971}
   m_Layer: 8
   m_Name: Fill
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 307340433}
   m_Layer: 0
   m_Name: APR_LeftHand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -557,7 +557,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000008738787, y: 0.523219, z: -0.000000007977294}
+  m_ConnectedAnchor: {x: -0.0000008633486, y: 0.52321935, z: 3.4450793e-11}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -699,7 +699,7 @@ GameObject:
   - component: {fileID: 167863464}
   m_Layer: 0
   m_Name: APR_RightHand
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -759,7 +759,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00041060426, y: -0.5247586, z: -0.000000022610248}
+  m_ConnectedAnchor: {x: -0.0004106043, y: -0.5247586, z: -0.000000036968977}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -896,7 +896,7 @@ GameObject:
   - component: {fileID: 3212994448876713226}
   - component: {fileID: 4974739166571780257}
   - component: {fileID: 1034719186}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: APR_Player_Final
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,10 +1014,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHP: 100
+  startingHealth: 0
   isEnemyAlive: 0
   enemyRuntimeSet: {fileID: 11400000, guid: b9122e1eea805544ea7fcab86bd923f5, type: 2}
   myEnemyController: {fileID: 3212994448876713226}
   hpSlider: {fileID: 93616038}
+  debugTest: []
 --- !u!1 &4920875248794848926
 GameObject:
   m_ObjectHideFlags: 0
@@ -1126,7 +1128,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.009304289, y: -0.5967073, z: 0.18177097}
+  m_ConnectedAnchor: {x: 0.009304599, y: -0.5967072, z: 0.18177001}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1325,7 +1327,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.1051593, y: 0.27447742, z: -0.013458384}
+  m_ConnectedAnchor: {x: -1.1051588, y: 0.2744774, z: -0.013460401}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1512,7 +1514,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000043864907, y: -0.59122217, z: 0.000005164744}
+  m_ConnectedAnchor: {x: 0.00000014621635, y: -0.59122217, z: 0.00000032839733}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1638,7 +1640,7 @@ GameObject:
   - component: {fileID: 694256301}
   m_Layer: 0
   m_Name: APR_UpperRightArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1698,7 +1700,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.53125966, y: 0.29318058, z: 0}
+  m_ConnectedAnchor: {x: 0.5312594, y: 0.29318058, z: -0.000000005720211}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1824,7 +1826,7 @@ GameObject:
   - component: {fileID: 35035014}
   m_Layer: 0
   m_Name: APR_Root
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1884,7 +1886,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 7.6899996, y: 0.9061249, z: -81.69199}
+  m_ConnectedAnchor: {x: 4.656613e-10, y: 0.9061249, z: 0.007999999}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -2010,7 +2012,7 @@ GameObject:
   - component: {fileID: 1682604810}
   m_Layer: 0
   m_Name: APR_LowerRightArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2070,7 +2072,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00019137056, y: -0.5319962, z: -0.0000000123651045}
+  m_ConnectedAnchor: {x: -0.00019137056, y: -0.53199685, z: -0.00000003337356}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2256,7 +2258,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.0769453, y: 0.27447742, z: -0.013458384}
+  m_ConnectedAnchor: {x: 1.0769447, y: 0.2744774, z: -0.013460401}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2442,7 +2444,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000005748677, y: -0.59122217, z: 0.000005164744}
+  m_ConnectedAnchor: {x: -0.000000071858466, y: -0.59122217, z: 0.0000003138542}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2568,7 +2570,7 @@ GameObject:
   - component: {fileID: 1509699913}
   m_Layer: 0
   m_Name: APR_UpperLeftArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2628,7 +2630,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.5418159, y: 0.293181, z: 0}
+  m_ConnectedAnchor: {x: -0.54181606, y: 0.293181, z: 0.000000004840179}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2815,7 +2817,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.5603498, z: -0.009789383}
+  m_ConnectedAnchor: {x: 0.0000000010178965, y: 0.56034976, z: -0.009789384}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3033,7 +3035,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.009272461, y: -0.5967054, z: 0.18177098}
+  m_ConnectedAnchor: {x: 0.0092727225, y: -0.5967053, z: 0.18177009}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3172,7 +3174,7 @@ GameObject:
   - component: {fileID: 1412301519}
   m_Layer: 0
   m_Name: APR_LowerLeftArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3233,7 +3235,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000013499433, y: 0.52276886, z: 0.000000012336864}
+  m_ConnectedAnchor: {x: -0.0000013499434, y: 0.522769, z: 0.000000003202765}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3422,7 +3424,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.47191513, z: 0}
+  m_ConnectedAnchor: {x: 3.887883e-10, y: 0.47191513, z: 0.00000006424237}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3673,7 +3675,7 @@ GameObject:
   - component: {fileID: 19666172}
   m_Layer: 0
   m_Name: hand_L (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3777,7 +3779,7 @@ GameObject:
   - component: {fileID: 4974739166873344955}
   m_Layer: 0
   m_Name: hand_L (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3857,7 +3859,7 @@ GameObject:
   - component: {fileID: 400315203}
   m_Layer: 0
   m_Name: hand_L (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3963,7 +3965,7 @@ GameObject:
   - component: {fileID: 531390302}
   m_Layer: 0
   m_Name: hand_R (2)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4069,7 +4071,7 @@ GameObject:
   - component: {fileID: 470449742}
   m_Layer: 0
   m_Name: hand_R (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4175,7 +4177,7 @@ GameObject:
   - component: {fileID: 104089203}
   m_Layer: 0
   m_Name: hand_R (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4281,7 +4283,7 @@ GameObject:
   - component: {fileID: 280622544}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4387,7 +4389,7 @@ GameObject:
   - component: {fileID: 258892450}
   m_Layer: 0
   m_Name: Hair (3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4493,7 +4495,7 @@ GameObject:
   - component: {fileID: 1826414000}
   m_Layer: 0
   m_Name: Hair
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4693,7 +4695,7 @@ GameObject:
   - component: {fileID: 239032587}
   m_Layer: 0
   m_Name: Nipple
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4800,7 +4802,7 @@ GameObject:
   - component: {fileID: 1644541451}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4920,7 +4922,7 @@ GameObject:
   - component: {fileID: 68614394}
   m_Layer: 0
   m_Name: Hair
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5027,7 +5029,7 @@ GameObject:
   - component: {fileID: 1988514142}
   m_Layer: 0
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5152,7 +5154,7 @@ GameObject:
   - component: {fileID: 1907711532}
   m_Layer: 0
   m_Name: Nipple
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5352,7 +5354,7 @@ GameObject:
   - component: {fileID: 1922303582}
   m_Layer: 0
   m_Name: Pelvis
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5564,7 +5566,7 @@ GameObject:
   - component: {fileID: 696811035}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5671,7 +5673,7 @@ GameObject:
   - component: {fileID: 1298237870}
   m_Layer: 0
   m_Name: fArm_L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5795,7 +5797,7 @@ GameObject:
   - component: {fileID: 166169599}
   m_Layer: 0
   m_Name: arm_L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5958,7 +5960,7 @@ GameObject:
   - component: {fileID: 1052250786}
   m_Layer: 0
   m_Name: hand_R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6066,7 +6068,7 @@ GameObject:
   - component: {fileID: 1859931674}
   m_Layer: 0
   m_Name: fArm_R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6188,7 +6190,7 @@ GameObject:
   - component: {fileID: 24626319}
   m_Layer: 0
   m_Name: Hair
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6294,7 +6296,7 @@ GameObject:
   - component: {fileID: 1011380773}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6398,7 +6400,7 @@ GameObject:
   - component: {fileID: 6518763505614645472}
   m_Layer: 0
   m_Name: hand_L
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6573,7 +6575,7 @@ GameObject:
   - component: {fileID: 747833987}
   m_Layer: 0
   m_Name: arm_R
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6695,7 +6697,7 @@ GameObject:
   - component: {fileID: 653406827}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6802,7 +6804,7 @@ GameObject:
   - component: {fileID: 991831929}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

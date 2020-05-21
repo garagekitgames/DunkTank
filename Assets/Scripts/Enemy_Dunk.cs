@@ -47,7 +47,7 @@ public class Enemy_Dunk : MonoBehaviour
             enemyHP -= damage;
             debugTest.Add("Damaged : " + enemyHP);
             CheckAlive();
-            
+            Debug.Log("Damaged : " + enemyHP);
         }
 
         

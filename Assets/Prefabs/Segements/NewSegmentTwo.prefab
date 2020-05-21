@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 499471366}
   - component: {fileID: 499471367}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: NavMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 1156251899794956124}
   - component: {fileID: 1156251899794956115}
   m_Layer: 0
-  m_Name: NewSegmentOne
+  m_Name: NewSegmentTwo
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

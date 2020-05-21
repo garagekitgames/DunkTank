@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class HammerTrap : MonoBehaviour, ITrap
 {
-    public void OnTriggered()
-    {
-        Debug.Log("Trigerred");
-    }
+    public Rigidbody myHandle;
+
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        myHandle.isKinematic = true;
+    }
+
+    public void OnTriggered()
+    {
+        Debug.Log("Trigerred");
+        myHandle.isKinematic = false;
     }
 
     // Update is called once per frame
