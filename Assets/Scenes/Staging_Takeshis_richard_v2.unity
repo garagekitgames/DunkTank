@@ -1830,11 +1830,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd437d01034cef4bb339e67a81c2532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentLevel: {fileID: 0}
+  _currentLevel: {fileID: 11400000, guid: ffc688fdf01c848c8ac8e16505ba88bb, type: 2}
   currentLevel: 0
   initialSegmentSpawnPoint: {x: 0, y: 1.6, z: -6}
   segmentsPerLevel: 3
   distanceBetweenSegments: 120
+  firstSet: []
+  secondSet: []
+  thirdSet: []
+  fourthSet: []
+  fifthSet: []
+  sixthSet: []
+  seventhSet: []
+  eighthSet: []
+  ninthSet: []
+  tenthSet: []
+  finalSet: []
   easySegments:
   - {fileID: 1156251899794956115, guid: 662eda0e7f0dfdd41bd09d82da019002, type: 3}
   - {fileID: 1156251899794956115, guid: 662eda0e7f0dfdd41bd09d82da019002, type: 3}

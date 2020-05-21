@@ -2359,7 +2359,7 @@ MonoBehaviour:
   updateFrequency: 0.2
   offset: {x: 0, y: 20, z: 40}
   targetsCenter: {x: 0, y: 0, z: 0}
-  maxZoom: 1000
+  maxZoom: 1.3
   zoom: 1
   targets: []
   smoothTime: 0.4
@@ -2639,6 +2639,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3212994448876713226, guid: 329e696a2fc20425ba73da9b364cc8d8,
+        type: 3}
+      propertyPath: useControls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1034719186, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
+      propertyPath: isEnemyAlive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1696210970, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -2663,15 +2672,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 601542044}
-    - target: {fileID: 3212994448876713226, guid: 329e696a2fc20425ba73da9b364cc8d8,
-        type: 3}
-      propertyPath: useControls
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1034719186, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
-      propertyPath: isEnemyAlive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 329e696a2fc20425ba73da9b364cc8d8, type: 3}
 --- !u!1 &755009891
@@ -7362,6 +7362,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
+        type: 3}
+      propertyPath: m_Name
+      value: Trap_Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2403235588370391620, guid: ddf690df0625d425781e5daef9af4443,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7415,16 +7425,6 @@ PrefabInstance:
     - target: {fileID: 2403235588370391620, guid: ddf690df0625d425781e5daef9af4443,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
-        type: 3}
-      propertyPath: m_Name
-      value: Trap_Hammer
-      objectReference: {fileID: 0}
-    - target: {fileID: 2403235588370391621, guid: ddf690df0625d425781e5daef9af4443,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
