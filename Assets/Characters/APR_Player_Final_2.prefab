@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c924a6744e81c4e8b4788b7b8345b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useControls: 0
+  useControls: 1
   moveForward: w
   moveBackward: s
   turnRight: d
