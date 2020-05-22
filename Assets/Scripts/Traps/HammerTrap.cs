@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class HammerTrap : MonoBehaviour, ITrap
 {
-    public Rigidbody myHandle;
-
-    
+    public Rigidbody myHandle; 
     
 
     // Start is called before the first frame update

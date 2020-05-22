@@ -7,11 +7,15 @@ public class Trigger : MonoBehaviour
 {
 
     public GameObject myTrapGO;
+    public GameObject myTriggerGO;
     private ITrap myTrap;
+    private ITrigger myTrigger;
+
     // Start is called before the first frame update
     void Start()
     {
         myTrap = myTrapGO.GetComponent<ITrap>();
+        myTrigger = myTriggerGO.GetComponent<ITrigger>();
         DOTween.Init();
     }
 
@@ -25,7 +29,7 @@ public class Trigger : MonoBehaviour
             {
                 Debug.Log("inside mytrap if");
                 myTrap.OnTriggered();
-                transform.DOLocalMove(new Vector3(0, -1, 0), 0.5f);
+                myTrigger.OnAnimationPlay();
             }
         }
     }
