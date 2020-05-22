@@ -210,7 +210,7 @@ public class APRController : MonoBehaviour
         //startMoveSpeed = MoveSpeed;
        // agent.Warp(this.transform.position);
 
-        StartCoroutine(navmeshEnable());
+      //  StartCoroutine(navmeshEnable());
     }
 
     IEnumerator navmeshEnable()
