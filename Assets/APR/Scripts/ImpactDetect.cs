@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class ImpactDetect : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class ImpactDetect : MonoBehaviour
 
     public Rigidbody myRb;
     public float impactForce;
-    
+
+    public UnityEvent OnHitEvent;
+
+
 	void OnCollisionEnter(Collision col)
 	{
-
         if (myEnemy)
         {
             if (col.transform.CompareTag("Ball"))
@@ -26,6 +29,8 @@ public class ImpactDetect : MonoBehaviour
 
                 myEnemy.OnDamage(currentBall.damage);
                 myRb.AddForce(col.GetContact(0).normal * 10000);
+                OnHitEvent.Invoke();
+
                // myHealth.TakeHit(1, collision.GetContact(0).point, collision.GetContact(0).normal, 0, myBodyPartType);
             }
         }
