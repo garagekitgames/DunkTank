@@ -17,3 +17,10 @@ MonoBehaviour:
   Names:
   - Unnamed
   - TapToStart
+  - PauseMenu
+  - ShopMenu
+  - SettingsMenu
+  - PrivacySettingsMenu
+  - LevelWonMenu
+  - LevelLostMenu
+  - InGameMenu
