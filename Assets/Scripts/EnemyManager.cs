@@ -83,7 +83,21 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    public void StopAllEnemies()
+    {
+        foreach (var item in enemyRuntimeSet.Items)
+        {
+            item.GetComponent<APRController>().StopCharacter();
+        }
+    }
 
+    public void ResumeAllEnemies()
+    {
+        foreach (var item in enemyRuntimeSet.Items)
+        {
+            item.GetComponent<APRController>().ResumeCharacter();
+        }
+    }
 
     GameObject GetTheEnemy(EnemyTypes _reqdType)
     {

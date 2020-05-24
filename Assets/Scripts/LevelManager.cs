@@ -43,19 +43,26 @@ public class LevelManager : MonoBehaviour
     [Header("Events")]
     public UnityEvent levelFailed;
     public UnityEvent OnLevelFinished;
+    public UnityEvent OnLevelGenerated;
     private Dictionary<EnemyTypes, int> enemyType_Dic =
                        new Dictionary<EnemyTypes, int>();
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {
             instance = this;
         }
+    }
+    private void Start()
+    {
+        
 
         PlaceSegments();
-        
-       
+        OnLevelGenerated.Invoke();
+
+
+
     }
 
     // Update is called once per frame

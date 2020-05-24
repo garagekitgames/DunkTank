@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 2403235587679364475}
   - component: {fileID: 2403235587679364473}
   - component: {fileID: 2403235587679364468}
+  - component: {fileID: 2040301922}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -425,6 +426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myTrapGO: {fileID: 2403235586844670017}
+  myTriggerGO: {fileID: 2403235587679364469}
 --- !u!65 &2403235587679364473
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -454,6 +456,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2040301922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403235587679364469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9fe502107cf944aa08af3e856ef36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2403235587970603776
 GameObject:
   m_ObjectHideFlags: 0

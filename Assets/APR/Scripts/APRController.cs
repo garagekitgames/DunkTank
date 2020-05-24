@@ -189,6 +189,26 @@ public class APRController : MonoBehaviour
         UpperLeftLegTarget = APR_Parts[9].GetComponent<ConfigurableJoint>().targetRotation;
         LowerLeftLegTarget = APR_Parts[10].GetComponent<ConfigurableJoint>().targetRotation;
 	}
+
+    public void StopCharacter()
+    {
+        agent.enabled = false;
+        WalkForward = false;
+        isKeyDown = false;
+        canMove = false;
+        useControls = true;
+
+    }
+
+    public void ResumeCharacter()
+    {
+        useControls = false;
+        agent.enabled = true;
+        WalkForward = false;
+        isKeyDown = false;
+        canMove = true;
+
+    }
     private void Start()
     {
         startingRotation = Quaternion.Inverse(APR_Parts[0].transform.localRotation);

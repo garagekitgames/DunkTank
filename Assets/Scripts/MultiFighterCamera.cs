@@ -42,6 +42,29 @@ public class MultiFighterCamera : MonoBehaviour
 
     public bool initialized;
 
+    public Vector3 CameraStartOffset;
+    public Vector3 CameraGameOffset;
+
+    public void SetCameraStartPose()
+    {
+        offset = CameraStartOffset;
+        smoothTime = 3f;
+    }
+
+    public void SetCameraGamePose()
+    {
+
+        StartCoroutine(SetGameCameraSettings(3f));
+    }
+
+    IEnumerator SetGameCameraSettings(float sec)
+    {
+        smoothTime = 3f;
+        offset = CameraGameOffset;
+        yield return new WaitForSeconds(sec);
+        smoothTime = 0.5f;
+    }
+
     private void Start()
     {
         this.thisTransform = base.transform;
@@ -51,6 +74,8 @@ public class MultiFighterCamera : MonoBehaviour
             this.UpdateCenter();
         }
         this.lastLookAtPosition = this.targetsCenter;
+
+        SetCameraStartPose();
     }
 
     private void LateUpdate()
