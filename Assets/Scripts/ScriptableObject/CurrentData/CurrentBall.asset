@@ -18,5 +18,5 @@ MonoBehaviour:
   ballLevel: 0
   ballMaxLevel: 0
   coinsToBuyBall: 0
-  reloadingTime: 0.1
+  reloadingTime: 0.3
   ballDataName: 
