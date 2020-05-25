@@ -24,3 +24,5 @@ MonoBehaviour:
   - LevelWonMenu
   - LevelLostMenu
   - InGameMenu
+  - CountdownTimer
+  - HomeMenu

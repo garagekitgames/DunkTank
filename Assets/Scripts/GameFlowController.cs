@@ -36,21 +36,24 @@ public class GameFlowController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        startText.enabled = false;
+        //startText.enabled = false;
         if (gameStarted)
         {
             timeLeft -= Time.deltaTime;
             startText.text = (timeLeft).ToString("0");
-            startText.enabled = true;
-            if (timeLeft < 0)
+            startText.transform.parent.gameObject.SetActive(true);
+            if (timeLeft > 0 && timeLeft < 1)
             {
-                startText.enabled = false;
-                OnCountdownEnd.Invoke();
+                startText.text = "GO";
+
                 //Do something useful or Load a new game scene depending on your use-case
             }
+            if (timeLeft < 0)
+            {
+                startText.transform.parent.gameObject.SetActive(false);
+                OnCountdownEnd.Invoke();
+            }
         }
-
-        
     }
 
     public void LevelGenerated()
