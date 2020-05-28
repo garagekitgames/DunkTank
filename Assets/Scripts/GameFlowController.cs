@@ -23,9 +23,12 @@ public class GameFlowController : MonoBehaviour
     bool isMeterIncreasing;
     bool isMeterReachedTop;
 
+    public float startingReloadTime;
+    public float fastReloadTime;
+
     private void Start()
     {
-
+        startingReloadTime = currentBall.reloadingTime;
     }
     public void SetGameStarted()
     {
@@ -52,6 +55,7 @@ public class GameFlowController : MonoBehaviour
             {
                 startText.transform.parent.gameObject.SetActive(false);
                 OnCountdownEnd.Invoke();
+                gameStarted = false;
             }
         }
     }
@@ -83,7 +87,7 @@ public class GameFlowController : MonoBehaviour
         if (continuousHit > 99)
         {
             isMeterReachedTop = true;
-            currentBall.reloadingTime = 0f;
+            currentBall.reloadingTime = fastReloadTime;
             while (continuousHit > 0)
             {
                 isMeterIncreasing = true;
@@ -114,6 +118,12 @@ public class GameFlowController : MonoBehaviour
         isMeterIncreasing = false;
         temp = 0;       
     }
+
+    private void OnDisable()
+    {
+        currentBall.reloadingTime = startingReloadTime;
+    }
+
 
     public IEnumerator DecreaseValue()
     {    

@@ -330,7 +330,7 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
             AudioSource source = gO.AddComponent<AudioSource>();
             source.loop = false;
             source.dopplerLevel = 0.1f;
-            source.volume = volumeM / 10f;
+            source.volume = volumeM / 7f;
             source.pitch = Random.Range(Instance.pitch - 0.1f, Instance.pitch + 0.1f); //Instance.pitch;
             source.rolloffMode = AudioRolloffMode.Linear;
             source.minDistance = 2000;
