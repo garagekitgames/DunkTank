@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using EZCameraShake;
 public enum BallReleaseType {Continuous,Interval }
 public enum ThrowType
 {
@@ -95,9 +95,11 @@ public class ThrowInput : MonoBehaviour
         {
             case ThrowType.FromObject:
                 thrower.Throw(target);
+                
                 break;
             case ThrowType.FromScreen:
                 thrower.Throw(target, temOrigin);
+                //CameraShaker.Instance.ShakeOnce(Random.Range(0.4f, 1f), 20, 0.05f, 0.4f);
                 break;
             default:
                 break;

@@ -18,6 +18,10 @@ public class Enemy_Dunk : MonoBehaviour
     public List<string> debugTest = new List<string>();
     #region Enemy Spawn 
 
+    private void Start()
+    {
+        //InvokeRepeating("Yell", 3.0f, Random.Range(2.0f, 10.0f));
+    }
     public void OnSpawned()
     {
         enemyHP = 100;
@@ -30,9 +34,19 @@ public class Enemy_Dunk : MonoBehaviour
         debugTest.Add("Spawned");
         //myEnemyController.DeactivateRagdoll();
         CancelInvoke();
+        InvokeRepeating("Yell", Random.Range(3.0f, 10.0f), Random.Range(2.0f, 10.0f));
     }
     #endregion
 
+
+    public void Yell()
+    {
+        if (isEnemyAlive && !myEnemyController.KnockedOut)
+        {
+            EffectsController.Instance.PlayRandomLaughSound(myEnemyController.APR_Parts[2].transform.position, Random.Range(1.0f, 10.0f), "yell");
+
+        }
+    }
     private void Update()
     {
         hpSlider.value = enemyHP / 100;
@@ -93,7 +107,10 @@ public class Enemy_Dunk : MonoBehaviour
                 {
                     recoverRoutine = StartCoroutine(Recover());
                 }
+
             }
+
+            EffectsController.Instance.slowDownTime(4, 0.02f, 0);
         }
         else
         {

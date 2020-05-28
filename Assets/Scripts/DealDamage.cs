@@ -18,7 +18,10 @@ public class DealDamage : MonoBehaviour
             if (hp)
             {
                 hp.OnDamage(1000f);
-                collision.rigidbody.AddForce(collision.GetContact(0).normal * 10000);
+                EffectsController.Instance.PlayRandomScreamSound(collision.GetContact(0).point, collision.relativeVelocity.magnitude, collision.transform.tag);
+                EffectsController.Instance.PlayBallHitSound(collision.GetContact(0).point, collision.relativeVelocity.magnitude, collision.transform.tag);
+
+                collision.rigidbody.AddForce((collision.GetContact(0).normal) * Random.Range(150f, 200f), ForceMode.VelocityChange);
                 Debug.Log("HitPlayer");
             }
         }

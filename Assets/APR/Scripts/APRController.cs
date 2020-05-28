@@ -75,7 +75,7 @@ public class APRController : MonoBehaviour
 	RightFoot, LeftFoot;
 	
 	//Active Ragdoll Player Parts Array
-	private GameObject[] APR_Parts;
+	public GameObject[] APR_Parts;
 	
     //Hands
 	public Rigidbody RightHand, LeftHand;
@@ -121,6 +121,8 @@ public class APRController : MonoBehaviour
     public bool canMove;
 
     public float startMoveSpeed;
+
+    public Vector3 startPosition;
 
     void Awake()
 	{
@@ -188,7 +190,10 @@ public class APRController : MonoBehaviour
         LowerRightLegTarget = APR_Parts[8].GetComponent<ConfigurableJoint>().targetRotation;
         UpperLeftLegTarget = APR_Parts[9].GetComponent<ConfigurableJoint>().targetRotation;
         LowerLeftLegTarget = APR_Parts[10].GetComponent<ConfigurableJoint>().targetRotation;
-	}
+
+        startPosition = APR_Parts[0].transform.localPosition;
+
+    }
 
     public void StopCharacter()
     {
@@ -218,19 +223,31 @@ public class APRController : MonoBehaviour
         agent.updateRotation = false;
 
         startMoveSpeed = MoveSpeed;
+
+        //InvokeRepeating("Yell", 3.0f, Random.Range(2.0f, 10.0f));
     }
 
+    public void Yell()
+    {
+        if(!KnockedOut)
+        {
+            EffectsController.Instance.PlayRandomLaughSound(APR_Parts[2].transform.position, Random.Range(1.0f, 10.0f), "yell");
+
+        }
+    }
     private void OnEnable()
     {
         agent.enabled = true;
-       
+        APR_Parts[0].transform.localPosition = startPosition;
+        agent.Warp(APR_Parts[0].transform.position);
+        //this.transform.position = Vector3.zero;
         //agent.isStopped = false;
         //agent.ResetPath();
 
         //startMoveSpeed = MoveSpeed;
-       // agent.Warp(this.transform.position);
+        // agent.Warp(this.transform.position);
 
-      //  StartCoroutine(navmeshEnable());
+        //  StartCoroutine(navmeshEnable());
     }
 
     IEnumerator navmeshEnable()
@@ -256,12 +273,13 @@ public class APRController : MonoBehaviour
         }
 
 
-
+        APR_Parts[0].transform.localPosition = startPosition;
         //this.agent.isStopped = true;
         //this.agent.ResetPath();
+        agent.Warp(this.transform.position);
         this.agent.enabled = false;
        // this.target = APR_Parts[0].transform.position;
-        //agent.Warp(this.transform.position);
+        
 
         //this.transform.position = Vector3.zero;
         //APR_Parts[0].transform.position = Vector3.zero;

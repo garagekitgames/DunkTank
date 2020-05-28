@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class GameFlowController : MonoBehaviour
+public class GameFlowController : UnitySingleton<GameFlowController>
 {
     public float timeLeft = 3.0f;
 
@@ -19,13 +19,15 @@ public class GameFlowController : MonoBehaviour
     public float speed;
     public Progressor superMeter;
     public BallInfo currentBall;
+    public float startingReloadTime;
+    public float fastReloadTime;
     Coroutine ProgresRoutine = null;
     bool isMeterIncreasing;
     bool isMeterReachedTop;
 
     private void Start()
     {
-
+        startingReloadTime = currentBall.reloadingTime;
     }
     public void SetGameStarted()
     {
@@ -46,6 +48,7 @@ public class GameFlowController : MonoBehaviour
             {
                 startText.enabled = false;
                 OnCountdownEnd.Invoke();
+                gameStarted = false;
                 //Do something useful or Load a new game scene depending on your use-case
             }
         }
@@ -80,7 +83,7 @@ public class GameFlowController : MonoBehaviour
         if (continuousHit > 99)
         {
             isMeterReachedTop = true;
-            currentBall.reloadingTime = 0f;
+            currentBall.reloadingTime = fastReloadTime;
             while (continuousHit > 0)
             {
                 isMeterIncreasing = true;
@@ -91,7 +94,7 @@ public class GameFlowController : MonoBehaviour
             }
             continuousHit = 0f;
             hitValue = 0f;
-            currentBall.reloadingTime = 0.3f;
+            currentBall.reloadingTime = startingReloadTime;
 
         }
         isMeterReachedTop = false;
@@ -110,6 +113,11 @@ public class GameFlowController : MonoBehaviour
         damagePercentage = 0f;
         isMeterIncreasing = false;
         temp = 0;       
+    }
+
+    private void OnDisable()
+    {
+        currentBall.reloadingTime = startingReloadTime;
     }
 
     public IEnumerator DecreaseValue()

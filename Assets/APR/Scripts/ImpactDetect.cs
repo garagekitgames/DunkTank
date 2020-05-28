@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using EZCameraShake;
+using DamageEffect;
 
 public class ImpactDetect : MonoBehaviour
 {
@@ -18,17 +20,41 @@ public class ImpactDetect : MonoBehaviour
     public float impactForce;
 
     public UnityEvent OnHitEvent;
+    private DamageEffectScript damageEffectScript;
 
-
-	void OnCollisionEnter(Collision col)
+    private void Start()
+    {
+        //damageEffectScript = transform.root.GetComponent<DamageEffectScript>();
+    }
+    void OnCollisionEnter(Collision col)
 	{
         if (myEnemy)
         {
             if (col.transform.CompareTag("Ball"))
             {
 
-                myEnemy.OnDamage(currentBall.damage);
-                myRb.AddForce(col.GetContact(0).normal * 10000);
+                
+                //damageEffectScript.Blink(0, 0.2f);
+                if(this.gameObject.name.Contains("APR_Head"))
+                {
+                    CameraShaker.Instance.ShakeOnce(Random.Range(1.5f, 2f), 15, 0.05f, 0.4f);
+                    EffectsController.Instance.PlayBallHitSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
+                    EffectsController.Instance.PlayHurtSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
+
+                    
+                    myEnemy.OnDamage(currentBall.damage * 2);
+                    myRb.AddForce((col.GetContact(0).normal+Vector3.up)* Random.Range(100f, 150f), ForceMode.VelocityChange);
+                }
+                else
+                {
+                    CameraShaker.Instance.ShakeOnce(Random.Range(0.5f, 1.5f), 15, 0.05f, 0.4f);
+                    EffectsController.Instance.PlayBallHitSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
+                    EffectsController.Instance.PlayHurtSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
+
+                    myEnemy.OnDamage(currentBall.damage);
+                    myRb.AddForce((col.GetContact(0).normal + Vector3.up) * Random.Range(100f, 150f), ForceMode.VelocityChange);
+                }
+                
                 OnHitEvent.Invoke();
 
                // myHealth.TakeHit(1, collision.GetContact(0).point, collision.GetContact(0).normal, 0, myBodyPartType);

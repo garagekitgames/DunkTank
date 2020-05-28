@@ -78,7 +78,9 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (var enemy in enemyTypes)
         {
-            EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, enemy.Value, true, true, true);
+            EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, enemy.Value / 2, true, true, true);
+            //EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, 2, true, true, true);
+
             curObjectPool.Add(enemy.Key, newObjectPool);
         }
     }

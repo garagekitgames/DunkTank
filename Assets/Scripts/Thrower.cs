@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EZObjectPools;
+using EZCameraShake;
+using UnityEngine.Events;
 
 public class Thrower : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class Thrower : MonoBehaviour
     public ObjectPool op;
 
     EZObjectPool ballObjectPool = new EZObjectPool();
+
+    //public UnityEvent OnLaunchEvent;
 
     public void Start()
     {
@@ -34,6 +38,9 @@ public class Thrower : MonoBehaviour
         //Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         ballObjectPool.TryGetNextObject(launchPoint.position, Quaternion.identity, out ball);
         ball.GetComponent<Rigidbody>().AddForce((_target - launchPoint.position).normalized * speed, ForceMode.VelocityChange);
+        CameraShaker.Instance.ShakeOnce(Random.Range(0.5f, 0.9f), 20, 0.05f, 0.4f);
+        AudioManager.instance.Play("BallLaunch");
+        AudioManager.instance.Play("Woosh");
         StartCoroutine(ReturnObjectToPool(ball));
     }
 
@@ -43,6 +50,9 @@ public class Thrower : MonoBehaviour
         //Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         ballObjectPool.TryGetNextObject(launchPoint.position, Quaternion.identity, out ball);
         ball.GetComponent<Rigidbody>().AddForce((_target - origin).normalized * speed, ForceMode.VelocityChange);
+        CameraShaker.Instance.ShakeOnce(Random.Range(0.5f, 0.9f), 20, 0.05f, 0.4f);
+        AudioManager.instance.Play("BallLaunch");
+        AudioManager.instance.Play("Woosh");
         //Destroy(ball.gameObject, 3);
         StartCoroutine(ReturnObjectToPool(ball));
     }
