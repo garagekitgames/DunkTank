@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class GameFlowController : UnitySingleton<GameFlowController>
+public class GameFlowController : MonoBehaviour
 {
     public float timeLeft = 3.0f;
 
@@ -18,16 +18,14 @@ public class GameFlowController : UnitySingleton<GameFlowController>
     float damagePercentage;
     public float speed;
     public Progressor superMeter;
-    public BallInfo currentBall;
-    public float startingReloadTime;
-    public float fastReloadTime;
+    public CannonInfo currentBall;
     Coroutine ProgresRoutine = null;
     bool isMeterIncreasing;
     bool isMeterReachedTop;
 
     private void Start()
     {
-        startingReloadTime = currentBall.reloadingTime;
+
     }
     public void SetGameStarted()
     {
@@ -38,22 +36,24 @@ public class GameFlowController : UnitySingleton<GameFlowController>
     // Update is called once per frame
     private void Update()
     {
-        startText.enabled = false;
+        //startText.enabled = false;
         if (gameStarted)
         {
             timeLeft -= Time.deltaTime;
             startText.text = (timeLeft).ToString("0");
-            startText.enabled = true;
-            if (timeLeft < 0)
+            startText.transform.parent.gameObject.SetActive(true);
+            if (timeLeft > 0 && timeLeft < 1)
             {
-                startText.enabled = false;
-                OnCountdownEnd.Invoke();
-                gameStarted = false;
+                startText.text = "GO";
+
                 //Do something useful or Load a new game scene depending on your use-case
             }
+            if (timeLeft < 0)
+            {
+                startText.transform.parent.gameObject.SetActive(false);
+                OnCountdownEnd.Invoke();
+            }
         }
-
-        
     }
 
     public void LevelGenerated()
@@ -83,7 +83,7 @@ public class GameFlowController : UnitySingleton<GameFlowController>
         if (continuousHit > 99)
         {
             isMeterReachedTop = true;
-            currentBall.reloadingTime = fastReloadTime;
+            currentBall.reloadingTime = 0f;
             while (continuousHit > 0)
             {
                 isMeterIncreasing = true;
@@ -94,7 +94,7 @@ public class GameFlowController : UnitySingleton<GameFlowController>
             }
             continuousHit = 0f;
             hitValue = 0f;
-            currentBall.reloadingTime = startingReloadTime;
+            currentBall.reloadingTime = 0.3f;
 
         }
         isMeterReachedTop = false;
@@ -113,11 +113,6 @@ public class GameFlowController : UnitySingleton<GameFlowController>
         damagePercentage = 0f;
         isMeterIncreasing = false;
         temp = 0;       
-    }
-
-    private void OnDisable()
-    {
-        currentBall.reloadingTime = startingReloadTime;
     }
 
     public IEnumerator DecreaseValue()

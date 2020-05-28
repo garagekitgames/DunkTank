@@ -14,7 +14,7 @@ public class ImpactDetect : MonoBehaviour
     public AudioSource SoundSource;
 
     public Enemy_Dunk myEnemy;
-    public BallInfo currentBall;
+    public CannonInfo currentBall;
 
     public Rigidbody myRb;
     public float impactForce;
