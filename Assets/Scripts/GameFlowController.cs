@@ -18,7 +18,7 @@ public class GameFlowController : MonoBehaviour
     float damagePercentage;
     public float speed;
     public Progressor superMeter;
-    public BallInfo currentBall;
+    public CannonInfo currentBall;
     Coroutine ProgresRoutine = null;
     bool isMeterIncreasing;
     bool isMeterReachedTop;

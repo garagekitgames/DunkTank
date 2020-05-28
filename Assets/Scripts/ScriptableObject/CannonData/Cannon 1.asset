@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fed788fffeccbe48b657ff43915be98, type: 3}
-  m_Name: Ball4
+  m_Name: Cannon 1
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 135
   ammo: 2
   unLockBallAtLevel: 0
-  ballLevel: 0
+  ballLevel: 3
   ballMaxLevel: 10
-  coinsToBuyBall: 0
+  coinsToBuyBall: 1300
   reloadingTime: 0
-  ballDataName: Ball 4
+  ballDataName: Cannon 1

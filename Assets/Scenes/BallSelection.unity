@@ -395,7 +395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &354796286
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1747,6 +1747,8 @@ MonoBehaviour:
   coinTxt: {fileID: 891194210}
   myBall: {fileID: 0}
   myProperties: {fileID: 0}
+  currentCannon: {fileID: 11400000, guid: 0af27302707724d4d97389c74e59b4c1, type: 2}
+  currentCoin: {fileID: 11400000, guid: 646d3291209474186a981e136f13738e, type: 2}
 --- !u!1 &1275330180
 GameObject:
   m_ObjectHideFlags: 0

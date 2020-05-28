@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using SO;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SampleBallCard : MonoBehaviour
@@ -6,7 +7,9 @@ public class SampleBallCard : MonoBehaviour
     public Image thumbnailImg;
     public Text coinTxt;
     public GameObject myBall;
-    public BallInfo myProperties;
+    public CannonInfo myProperties;
+    public CannonInfo currentCannon;
+    public IntVariable currentCoin;
 
     public void OnClickMyBall()
     {
@@ -26,12 +29,19 @@ public class SampleBallCard : MonoBehaviour
 
     public void OnClickUpdate()
     {
-        if (myProperties.ballLevel<myProperties.ballMaxLevel)
+        if (currentCoin.value > 0)
         {
-            myProperties.damage += 10;
-            myProperties.coinsToBuyBall += 100;
-            myProperties.ballLevel++;//= 100;
-            coinTxt.text = myProperties.coinsToBuyBall.ToString();
+            if (myProperties.ballLevel < myProperties.ballMaxLevel)
+            {
+                currentCannon = myProperties;
+                //myProperties.damage += 10;
+                //myProperties.coinsToBuyBall += 100;
+                //  myProperties.ballLevel++;//= 100;
+                // coinTxt.text = myProperties.coinsToBuyBall.ToString();
+            }
         }
+
+    
+       
     }
 }
