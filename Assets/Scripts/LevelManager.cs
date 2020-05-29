@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
 
     public IntVariable _currentLevel;
     public int currentLevel = 0;
-    private int currentSegmentCount = 0;
+    public int currentSegmentCount = 0;
 
     [SerializeField]
     private Vector3 initialSegmentSpawnPoint;

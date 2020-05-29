@@ -7,6 +7,12 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    [SerializeField]
+    private WorldLevelUIDisplayer worldLevel;
+    [SerializeField]
+    private SegmentUIDisplayer segmentUI;
+    
+
     public GameObject levelCompleteUI;
     public GameObject levelFailedUI;
 
@@ -20,6 +26,17 @@ public class UIManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+
+        StartCoroutine(worldLevel.SetCurrentLevel(LevelManager.instance._currentLevel.value + 1));
+        segmentUI.DrawSegments(LevelManager.instance.segmentsPerLevel);
+        StartCoroutine(segmentUI.CurrentSegment(LevelManager.instance.currentSegmentCount + 1));
+
+    }
+
+    public void IncrementSegmentUI()
+    {
+        if(LevelManager.instance.currentSegmentCount + 1 <= LevelManager.instance.segmentsPerLevel)
+            StartCoroutine(segmentUI.CurrentSegment(LevelManager.instance.currentSegmentCount + 1));
     }
 
     // Update is called once per frame
