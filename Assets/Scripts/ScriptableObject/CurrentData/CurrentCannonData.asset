@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: CurrentCannonData
   m_EditorClassIdentifier: 
   thumbnail: {fileID: 0}
-  ballPrefab: {fileID: 0}
+  ballPrefab: {fileID: 6535039645957148947, guid: 63b57f2e44db5421f9261c345a13baa7,
+    type: 3}
   cannonPrefab: {fileID: 0}

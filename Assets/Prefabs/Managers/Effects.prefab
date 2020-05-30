@@ -1,0 +1,271 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2113740271041292714
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113740271041292711}
+  - component: {fileID: 2113740271041292708}
+  - component: {fileID: 2113740271041292709}
+  - component: {fileID: 2113740271041292710}
+  - component: {fileID: 2113740271041292705}
+  - component: {fileID: 2113740271041292704}
+  - component: {fileID: 2113740271041292706}
+  - component: {fileID: 2113740271041292707}
+  m_Layer: 0
+  m_Name: Effects
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2113740271041292711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.6553636, y: 3.680463, z: 13.098174}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113740271041292708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841b72de2996c5c40bfb394f3d0e0a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Feedbacks:
+  - {fileID: 2113740271041292709}
+  - {fileID: 2113740271041292710}
+  InitializationMode: 1
+  DebugActive: 0
+--- !u!114 &2113740271041292709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8fe7e41857f44348b52714b3238715c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 0
+  Label: Camera Shake
+  Chance: 100
+  Timing:
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  DebugActive: 0
+  RepeatUntilStopped: 0
+  Channel: 0
+  CameraShakeProperties:
+    Duration: 0.1
+    Amplitude: 0.2
+    Frequency: 40
+--- !u!114 &2113740271041292710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cf8e1825623fb34b9fc92dbef54ec56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: Flash
+  Chance: 100
+  Timing:
+    InitialDelay: 0
+    CooldownDuration: 0
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+  DebugActive: 0
+  Channel: 0
+  FlashColor: {r: 1, g: 1, b: 1, a: 1}
+  FlashDuration: 0.015
+  FlashAlpha: 0.25
+  FlashID: 0
+--- !u!114 &2113740271041292705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 1dfa2f96808c0de45a01695134c919b2, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113740271041292708}
+        m_MethodName: PlayFeedbacks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2113740271041292704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb6421dcc22b40c4b6f268bc16034c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 24301952, guid: 9e3d22050d47541fcbd80ae93eb6f2a3, type: 2}
+  currentSlowPriority: 0
+  previousSlowPriority: 0
+  slowFactor: 1.8
+  timeSlowing: 0
+  bigHit: 0
+  pitch: 1
+  minVolume: 0.01
+  maxVolume: 0.3
+  minVelocity: 1
+  maxVelocity: 10
+  minImpactDelay: 0.15
+  ballHitClips:
+  - {fileID: 8300000, guid: cc7847b6e0e0a414786f4b635b44621e, type: 3}
+  - {fileID: 8300000, guid: cce4b625ae2e94506b8c539578de025e, type: 3}
+  - {fileID: 8300000, guid: 0473da0b6c1a44554ae93ab09e85e504, type: 3}
+  - {fileID: 8300000, guid: 20b1200381f0f4263b3d9c69eb796b40, type: 3}
+  - {fileID: 8300000, guid: 689568ae7b5ce41eb935140a677ef916, type: 3}
+  - {fileID: 8300000, guid: 88017d0651ab64f9d8f134d8e9e4a234, type: 3}
+  - {fileID: 8300000, guid: af303d5b322014bf7b50c7ee9ee0d2a8, type: 3}
+  - {fileID: 8300000, guid: 7d23c3916f990455482116062cd024c5, type: 3}
+  - {fileID: 8300000, guid: c5ee1b4957c254e84a0afa10fb6bef82, type: 3}
+  - {fileID: 8300000, guid: 47e3f81b421e24296abfade1f05345cd, type: 3}
+  - {fileID: 8300000, guid: e2af2e0688660484ba2679d6fea9d362, type: 3}
+  - {fileID: 8300000, guid: b976bb1620b704518907221a3e831c40, type: 3}
+  - {fileID: 8300000, guid: f576ed59d906441e09da4dcbe29bf17a, type: 3}
+  - {fileID: 8300000, guid: ca04ddb0199924d448d7631774f23285, type: 3}
+  - {fileID: 8300000, guid: e0fe795a69d204b44b0658d59fed8cb3, type: 3}
+  - {fileID: 8300000, guid: 25023384852884904950cc4d83d90392, type: 3}
+  - {fileID: 8300000, guid: c8f5dac5e41d7494192560c0c5285660, type: 3}
+  - {fileID: 8300000, guid: 92d46c10ef24847bb8f6851e44bb618c, type: 3}
+  - {fileID: 8300000, guid: 9cc9f936dd818499496bd370a3a1180a, type: 3}
+  - {fileID: 8300000, guid: c82a6205b2b654c71ae130d6b0301a0a, type: 3}
+  - {fileID: 8300000, guid: 084da1de91dc24fc1944de2a698a372c, type: 3}
+  - {fileID: 8300000, guid: 936331c77b6384ffdae0f3cc217e6a27, type: 3}
+  hurtClips:
+  - {fileID: 8300000, guid: 8d7c8cdb789e74a589840fb8ca1bf3ff, type: 3}
+  - {fileID: 8300000, guid: 4d4b045a27f3c45bd9f2e9d9ac2ec35e, type: 3}
+  - {fileID: 8300000, guid: 5b2a090c1d60340faba73de9ae862136, type: 3}
+  - {fileID: 8300000, guid: 85a68c45aa16742f99aff51fc5661c0f, type: 3}
+  - {fileID: 8300000, guid: eb3abf145d0d14ddbbcf19e8b902c2ce, type: 3}
+  - {fileID: 8300000, guid: a88cf2c43c56f4fc6bca7da6ee359ad0, type: 3}
+  - {fileID: 8300000, guid: e5eb3bda7bd3c43369e83d3be402d4bb, type: 3}
+  voiceClips:
+  - {fileID: 8300000, guid: 062626f25f1a2489abf48ff8e0329d2b, type: 3}
+  - {fileID: 8300000, guid: 812688ae32c7743c7bc5b797b793de56, type: 3}
+  - {fileID: 8300000, guid: 61fcb5b2817754c1386174a2bd4a3be6, type: 3}
+  - {fileID: 8300000, guid: a3dfee3642b354e8facaccadcb4c6da6, type: 3}
+  - {fileID: 8300000, guid: 2977cdc80111c41d68c6a7c11e6c6b8f, type: 3}
+  - {fileID: 8300000, guid: 5aa7283aef943411fbbaae448ac9947a, type: 3}
+  - {fileID: 8300000, guid: 5fc09eb0117b7416fb97239323e93436, type: 3}
+  - {fileID: 8300000, guid: d9736fc8f857148129b4e2aed84ff4d9, type: 3}
+  - {fileID: 8300000, guid: 5f9674a3e12d140119c306ea11fdd3ea, type: 3}
+  - {fileID: 8300000, guid: 9ae68e7694bfe493a919afcf4e3c6f9e, type: 3}
+  - {fileID: 8300000, guid: 76f86238bd0914098a405592b656fcdb, type: 3}
+  - {fileID: 8300000, guid: 427407726dfee40a49c7bc7bc87edc89, type: 3}
+  - {fileID: 8300000, guid: 4cfab8dc829a541bbac3839556217646, type: 3}
+  - {fileID: 8300000, guid: 38a6ed27185fe4644b9c0fa37355b38a, type: 3}
+  screamClips:
+  - {fileID: 8300000, guid: 4d4b045a27f3c45bd9f2e9d9ac2ec35e, type: 3}
+  - {fileID: 8300000, guid: 74f2a03c3e46846498dc9bac3a156c4a, type: 3}
+  - {fileID: 8300000, guid: e794c02227b6b493cbc206c59781e004, type: 3}
+  - {fileID: 8300000, guid: dffe9ebe872ee40f5b3d368f42767e32, type: 3}
+  lightHitFXPrefab: {fileID: 1879272669879180, guid: 75c4db1085df7a44ba02049f7fff96d2,
+    type: 3}
+  heavyHitFXPrefab: {fileID: 1879272669879180, guid: 8953c4e72a17a1c43824304cb1c479b9,
+    type: 3}
+--- !u!114 &2113740271041292706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 16a064ecb908970439567066742c37b9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113740271041292704}
+        m_MethodName: LevelFail
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2113740271041292707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113740271041292714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a055b694402bd469a86915f1319e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: f6dd75723e5621646b4e3459c92c51f1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2113740271041292704}
+        m_MethodName: LevelClear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
