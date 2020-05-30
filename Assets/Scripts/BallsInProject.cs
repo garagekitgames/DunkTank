@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public enum MethodType { Method1, Method2, Method3 }
 public class BallsInProject : MonoBehaviour
@@ -12,18 +13,21 @@ public class BallsInProject : MonoBehaviour
     public GameObject scrollBar;
     public GameObject ballPanel;
     public SampleBallCard sampleCard;
-    public GameObject previewObject;
+  //public GameObject previewObject;
     public GameObject curPreviewItem;
     public GameObject playButton;
     public Transform endPoint,startPoint;
     private List<SampleBallCard> _listOfSpawnedCards = new List<SampleBallCard>();
+    public SwipeMechanism scrollMechanism;
+    public Image previewThumbnailImg;
+    public CannonInfo currentCannon;
 
     public MethodType curMethod;
 
     public void Start()
     {
         instance = GetComponent<BallsInProject>();
-
+        scrollMechanism.SetScrollPos(currentCannon.cannonId);//=
         if (curMethod == MethodType.Method3)
         {
             playButton.SetActive(true);
@@ -38,9 +42,11 @@ public class BallsInProject : MonoBehaviour
             SampleBallCard temp = Instantiate(sampleCard, scrollBar.transform);
             temp.transform.SetParent(scrollBar.transform);
             temp.myProperties = _listOfBalls[i];
+            temp.coinTxt.text = _listOfBalls[i].coinsToBuyBall.ToString();
             CannonData tempData = Resources.Load<CannonData>("CannonData/" + _listOfBalls[i].ballDataName);
             temp.thumbnailImg.sprite = tempData.thumbnail;
             temp.myBall = tempData.ballPrefab;
+            temp.CheckCardStatus(); // = tempData.ballPrefab;
             _listOfSpawnedCards.Add(temp);
         }
     }
@@ -51,11 +57,11 @@ public class BallsInProject : MonoBehaviour
         {
             Destroy(curPreviewItem);
         }
-
-        curPreviewItem = Instantiate(_listOfSpawnedCards[id].myBall);
-        curPreviewItem.transform.SetParent(previewObject.transform);
-       curPreviewItem.transform.localPosition = Vector3.zero;
-       curPreviewItem.transform.localScale = Vector3.one;
+        previewThumbnailImg.sprite = _listOfSpawnedCards[id].thumbnailImg.sprite;
+       // curPreviewItem = Instantiate(_listOfSpawnedCards[id].myBall);
+       //  curPreviewItem.transform.SetParent(previewObject.transform);
+       //  curPreviewItem.transform.localPosition = Vector3.zero;
+       // curPreviewItem.transform.localScale = Vector3.one;
 
     }
 

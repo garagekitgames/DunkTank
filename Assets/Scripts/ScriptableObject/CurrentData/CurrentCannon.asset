@@ -20,3 +20,5 @@ MonoBehaviour:
   coinsToBuyBall: 0
   reloadingTime: 0.3
   ballDataName: 
+  isUnlocked: 0
+  cannonId: 1

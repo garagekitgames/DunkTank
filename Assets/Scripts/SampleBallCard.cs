@@ -1,6 +1,7 @@
 ﻿using SO;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class SampleBallCard : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class SampleBallCard : MonoBehaviour
     //OnBuySuccess
     //OnBuyFail
 
+    public UnityEvent OnBuySuccess;
+    public UnityEvent OnBuyFail;
+
+    public GameObject buyCoinsbtn;
+
     public void OnClickMyBall()
     {
         if(BallsInProject.instance.curMethod==MethodType.Method1)
@@ -21,11 +27,11 @@ public class SampleBallCard : MonoBehaviour
             {
                 Destroy(BallsInProject.instance.curPreviewItem);
             }
-
-            BallsInProject.instance.curPreviewItem = Instantiate(myBall);
-            BallsInProject.instance.curPreviewItem.transform.SetParent(BallsInProject.instance.previewObject.transform);
-            BallsInProject.instance.curPreviewItem.transform.localPosition = Vector3.zero;
-            BallsInProject.instance.curPreviewItem.transform.localScale = Vector3.one;
+            BallsInProject.instance.previewThumbnailImg.sprite = thumbnailImg.sprite;
+            // BallsInProject.instance.curPreviewItem = Instantiate(myBall);
+            //  BallsInProject.instance.curPreviewItem.transform.SetParent(BallsInProject.instance.previewObject.transform);
+            //   BallsInProject.instance.curPreviewItem.transform.localPosition = Vector3.zero;
+            //   BallsInProject.instance.curPreviewItem.transform.localScale = Vector3.one;
         }        
     }
 
@@ -35,19 +41,33 @@ public class SampleBallCard : MonoBehaviour
         // current coins = current coins - ball price;
         //ball.isunlocked = true;
         //current ball = selected ball
-        if (currentCoin.value > 0)
+
+        if (currentCoin.value >= myProperties.coinsToBuyBall && !myProperties.isUnlocked)
         {
             if (myProperties.ballLevel < myProperties.ballMaxLevel)
             {
+                currentCoin.value -= myProperties.coinsToBuyBall;
+                myProperties.isUnlocked = true;
                 currentCannon = myProperties;
-                //myProperties.damage += 10;
-                //myProperties.coinsToBuyBall += 100;
-                //  myProperties.ballLevel++;//= 100;
-                // coinTxt.text = myProperties.coinsToBuyBall.ToString();
+                OnBuySuccess.Invoke();
             }
         }
-
-    
+        else
+        {
+            OnBuyFail.Invoke();
+        }   
        
+    }
+
+    public void CheckCardStatus()
+    {
+        if (!myProperties.isUnlocked)
+        {
+            buyCoinsbtn.SetActive(true);
+        }
+        else
+        {
+            buyCoinsbtn.SetActive(false);
+        }
     }
 }

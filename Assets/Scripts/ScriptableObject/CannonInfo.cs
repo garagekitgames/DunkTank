@@ -14,4 +14,5 @@ public class CannonInfo : ScriptableObject
     public float reloadingTime;
     public string ballDataName;
     public bool isUnlocked;
+    public int cannonId;
 }
