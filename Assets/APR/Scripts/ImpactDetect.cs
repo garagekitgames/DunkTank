@@ -40,8 +40,8 @@ public class ImpactDetect : MonoBehaviour
                     CameraShaker.Instance.ShakeOnce(Random.Range(1f, 1.5f), 10, 0.05f, 0.4f);
                     EffectsController.Instance.PlayBallHitSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
                     EffectsController.Instance.PlayHurtSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
+                    EffectsController.Instance.CreateHitEffect(col.GetContact(0).point, 1, -col.GetContact(0).normal);
 
-                    
                     myEnemy.OnDamage(currentBall.damage * 2);
                     myRb.AddForce((col.GetContact(0).normal+Vector3.up)* Random.Range(100f, 150f), ForceMode.VelocityChange);
                 }
@@ -50,6 +50,7 @@ public class ImpactDetect : MonoBehaviour
                     CameraShaker.Instance.ShakeOnce(Random.Range(0.4f, 1f), 10, 0.05f, 0.4f);
                     EffectsController.Instance.PlayBallHitSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
                     EffectsController.Instance.PlayHurtSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
+                    EffectsController.Instance.CreateHitEffect(col.GetContact(0).point, 0, -col.GetContact(0).normal);
 
                     myEnemy.OnDamage(currentBall.damage);
                     myRb.AddForce((col.GetContact(0).normal + Vector3.up) * Random.Range(100f, 150f), ForceMode.VelocityChange);

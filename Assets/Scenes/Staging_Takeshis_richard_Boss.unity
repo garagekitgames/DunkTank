@@ -33774,6 +33774,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 74f2a03c3e46846498dc9bac3a156c4a, type: 3}
   - {fileID: 8300000, guid: e794c02227b6b493cbc206c59781e004, type: 3}
   - {fileID: 8300000, guid: dffe9ebe872ee40f5b3d368f42767e32, type: 3}
+  lightHitFXPrefab: {fileID: 1879272669879180, guid: 75c4db1085df7a44ba02049f7fff96d2,
+    type: 3}
+  heavyHitFXPrefab: {fileID: 1879272669879180, guid: 8953c4e72a17a1c43824304cb1c479b9,
+    type: 3}
 --- !u!114 &1546076862
 MonoBehaviour:
   m_ObjectHideFlags: 0
