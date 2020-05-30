@@ -17133,6 +17133,13 @@ MonoBehaviour:
   myProperties: {fileID: 0}
   currentCannon: {fileID: 11400000, guid: 0af27302707724d4d97389c74e59b4c1, type: 2}
   currentCoin: {fileID: 11400000, guid: 646d3291209474186a981e136f13738e, type: 2}
+  OnBuySuccess:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBuyFail:
+    m_PersistentCalls:
+      m_Calls: []
+  buyCoinsbtn: {fileID: 0}
 --- !u!1001 &1016630605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35365,11 +35372,13 @@ MonoBehaviour:
   scrollBar: {fileID: 1843561273}
   ballPanel: {fileID: 1758474565}
   sampleCard: {fileID: 1011646933}
-  previewObject: {fileID: 678508432}
   curPreviewItem: {fileID: 0}
   playButton: {fileID: 1817710247}
   endPoint: {fileID: 90801205}
   startPoint: {fileID: 1509113596}
+  scrollMechanism: {fileID: 0}
+  previewThumbnailImg: {fileID: 0}
+  currentCannon: {fileID: 0}
   curMethod: 1
 --- !u!1 &1657245782
 GameObject:
@@ -40887,6 +40896,7 @@ MonoBehaviour:
   scrollBar: {fileID: 1744686643}
   curId: -1
   prevId: -1
+  isValueAssigned: 0
 --- !u!114 &1843561276
 MonoBehaviour:
   m_ObjectHideFlags: 0
