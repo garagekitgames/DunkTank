@@ -34,7 +34,7 @@ public class EnemyManager : MonoBehaviour
     public Dictionary<EnemyTypes, EZObjectPool> curObjectPool = new Dictionary<EnemyTypes, EZObjectPool>();
     public List<EZObjectPool> prevObjectPool = new List<EZObjectPool>();
 
-    public void Start()
+    public void Awake()
     {
         eManager = GetComponent<EnemyManager>();
     }
