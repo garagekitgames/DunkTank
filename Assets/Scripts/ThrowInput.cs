@@ -44,7 +44,7 @@ public class ThrowInput : MonoBehaviour
                 {
                     Ray mouseRay = GenerateMouseRay();
                    
-                    target = mouseRay.GetPoint(20);                
+                    //target = new Vector3(mouseRay.GetPoint(5).x, mouseRay.GetPoint(5).y - 1, mouseRay.GetPoint(5).z);                
 
                 }
              
@@ -67,7 +67,7 @@ public class ThrowInput : MonoBehaviour
             Ray mouseRay = GenerateMouseRay();
             temOrigin = mouseRay.origin;
             target = mouseRay.GetPoint(20);
-            target.y += 0.5f;
+            //target.y += 0.5f;
 
             if(ballReleaseType==BallReleaseType.Continuous)
             {
