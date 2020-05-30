@@ -29,11 +29,12 @@ public class SampleBallCard : MonoBehaviour
             {
                 Destroy(BallsInProject.instance.curPreviewItem);
             }
-            BallsInProject.instance.previewThumbnailImg.sprite = thumbnailImg.sprite;
-            // BallsInProject.instance.curPreviewItem = Instantiate(myBall);
-            //  BallsInProject.instance.curPreviewItem.transform.SetParent(BallsInProject.instance.previewObject.transform);
-            //   BallsInProject.instance.curPreviewItem.transform.localPosition = Vector3.zero;
-            //   BallsInProject.instance.curPreviewItem.transform.localScale = Vector3.one;
+            //  BallsInProject.instance.previewThumbnailImg.sprite = thumbnailImg.sprite;
+            BallsInProject.instance.curPreviewItem = Instantiate(myBall);
+            BallsInProject.instance.curPreviewItem.GetComponent<Rigidbody>().isKinematic = true;
+            BallsInProject.instance.curPreviewItem.transform.SetParent(BallsInProject.instance.previewObject.transform);
+            BallsInProject.instance.curPreviewItem.transform.localPosition = Vector3.zero;
+            BallsInProject.instance.curPreviewItem.transform.localScale = Vector3.one;
         }        
     }
 
