@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49913d9d8a2b7e5448f9c03b5e559cbc, type: 3}
-  m_Name: Cannon 2
+  m_Name: CurrentCannonData
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 21300000, guid: b9012972562562a438cf9026ab3e59eb, type: 3}
-  ballPrefab: {fileID: 6535039645957148947, guid: 8643043c2fb1b4741afe2465a6af1c60,
-    type: 3}
+  thumbnail: {fileID: 0}
+  ballPrefab: {fileID: 0}
   cannonPrefab: {fileID: 0}

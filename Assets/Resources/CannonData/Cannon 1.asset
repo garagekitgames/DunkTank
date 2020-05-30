@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49913d9d8a2b7e5448f9c03b5e559cbc, type: 3}
   m_Name: Cannon 1
   m_EditorClassIdentifier: 
-  thumbnail: {fileID: 21300000, guid: b9012972562562a438cf9026ab3e59eb, type: 3}
-  ballPrefab: {fileID: 6768113501532881705, guid: 1cc31ba3c687bce4ba2a2641162b36b4,
+  thumbnail: {fileID: 21300000, guid: bb72f5ca984e00d44aff91ecb54c2487, type: 3}
+  ballPrefab: {fileID: 6535039645957148947, guid: 63b57f2e44db5421f9261c345a13baa7,
     type: 3}
   cannonPrefab: {fileID: 0}

@@ -18,6 +18,8 @@ public class Thrower : MonoBehaviour
 
     EZObjectPool ballObjectPool = new EZObjectPool();
 
+    public CannonData currentCannonData;
+
     //public UnityEvent OnLaunchEvent;
 
     public void Start()
@@ -25,7 +27,14 @@ public class Thrower : MonoBehaviour
         //op = new ObjectPool(ballPrefab,100);
         //ballPrefab.GetComponent<PooledItem>().SetPool(op);
 
+        SetBall();
+    }
+
+    public void SetBall()
+    {
+        ballPrefab = currentCannonData.ballPrefab;
         ballObjectPool = EZObjectPool.CreateObjectPool(ballPrefab, ballPrefab.name, 10, true, true, true);
+
     }
 
     public void Throw(Vector3 _target)

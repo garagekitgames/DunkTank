@@ -19,6 +19,6 @@ MonoBehaviour:
   ballMaxLevel: 0
   coinsToBuyBall: 0
   reloadingTime: 0.3
-  ballDataName: 
+  ballDataName: Cannon 1
   isUnlocked: 0
   cannonId: 1

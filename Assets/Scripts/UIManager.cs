@@ -23,6 +23,11 @@ public class UIManager : MonoBehaviour
 
     public Text levelText;
 
+    [SerializeField]
+    GameObject retryLevelFailText;
+    [SerializeField]
+    GameObject noThanksText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,14 +57,20 @@ public class UIManager : MonoBehaviour
 
     public void OnCompleteLevelShowUI()
     {
-        levelCompleteUI.SetActive(true);
+        StartCoroutine(EnableAfterDelay(noThanksText, 1));
+
     }
 
     public void OnLevelFailShowUI()
     {
-        levelFailedUI.SetActive(true);
+        StartCoroutine(EnableAfterDelay(retryLevelFailText, 1));
     }
 
+    IEnumerator EnableAfterDelay(GameObject _obj, int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _obj.SetActive(true);
+    }
 
     public void GotoNextLevelButtonPressed()
     {

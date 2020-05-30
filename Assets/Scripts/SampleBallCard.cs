@@ -11,12 +11,14 @@ public class SampleBallCard : MonoBehaviour
     public CannonInfo myProperties;
     public CannonInfo currentCannon;
     public IntVariable currentCoin;
+    public CannonData curCannonData;
+
     //OnBuySuccess
     //OnBuyFail
 
     public UnityEvent OnBuySuccess;
     public UnityEvent OnBuyFail;
-
+    public UnityEvent OnBallSelectEvent;
     public GameObject buyCoinsbtn;
 
     public void OnClickMyBall()
@@ -57,6 +59,20 @@ public class SampleBallCard : MonoBehaviour
             OnBuyFail.Invoke();
         }   
        
+    }
+
+    public void OnBallSelect()
+    {
+        if(myProperties.isUnlocked)
+        {
+            currentCannon.cannonId = myProperties.cannonId;
+            currentCannon.ballDataName = myProperties.ballDataName;
+            CannonData tempData = Resources.Load<CannonData>("CannonData/" + currentCannon.ballDataName);
+            curCannonData.ballPrefab = tempData.ballPrefab;
+            curCannonData.cannonPrefab = tempData.cannonPrefab;
+            curCannonData.thumbnail = tempData.thumbnail;
+            OnBallSelectEvent.Invoke();
+        }
     }
 
     public void CheckCardStatus()
