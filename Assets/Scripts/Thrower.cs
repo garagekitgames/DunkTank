@@ -38,7 +38,7 @@ public class Thrower : MonoBehaviour
         //Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         ballObjectPool.TryGetNextObject(launchPoint.position, Quaternion.identity, out ball);
         ball.GetComponent<Rigidbody>().AddForce((_target - launchPoint.position).normalized * speed, ForceMode.VelocityChange);
-        CameraShaker.Instance.ShakeOnce(Random.Range(0.1f, 0.6f), 20, 0.05f, 0.4f);
+        CameraShaker.Instance.ShakeOnce(Random.Range(0.3f, 0.8f), 20, 0.05f, 0.4f);
         AudioManager.instance.Play("BallLaunch");
         AudioManager.instance.Play("Woosh");
         StartCoroutine(ReturnObjectToPool(ball));
@@ -50,7 +50,7 @@ public class Thrower : MonoBehaviour
         //Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         ballObjectPool.TryGetNextObject(launchPoint.position, Quaternion.identity, out ball);
         ball.GetComponent<Rigidbody>().AddForce((_target - origin).normalized * speed, ForceMode.VelocityChange);
-        CameraShaker.Instance.ShakeOnce(Random.Range(0.1f, 0.6f), 20, 0.05f, 0.4f);
+        CameraShaker.Instance.ShakeOnce(Random.Range(0.3f, 0.8f), 20, 0.05f, 0.4f);
         AudioManager.instance.Play("BallLaunch");
         AudioManager.instance.Play("Woosh");
         //Destroy(ball.gameObject, 3);

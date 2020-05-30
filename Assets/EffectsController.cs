@@ -40,6 +40,10 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
 
     public AudioClip[] screamClips;
 
+
+    public GameObject lightHitFXPrefab;
+    public GameObject heavyHitFXPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +53,22 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
     private void Awake()
     {
         base.Awake();
+    }
+
+    public void CreateHitEffect(Vector3 position, int hitType, Vector3 normal)
+    {
+
+        Quaternion rot = Quaternion.FromToRotation(Vector3.forward, normal);
+        //camRippler.RippleEffect(position);
+        if (hitType == 0)
+        {
+            GameObject hitFX = Instantiate(Instance.lightHitFXPrefab, position, rot);
+        }
+        else
+        {
+            GameObject hitFX = Instantiate(Instance.heavyHitFXPrefab, position, rot);
+        }
+
     }
 
     void OnEnable()

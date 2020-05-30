@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        StartCoroutine(worldLevel.SetCurrentLevel(LevelManager.instance._currentLevel.value + 1));
+        StartCoroutine(worldLevel.SetCurrentLevel(LevelManager.instance._currentLevel.value));
         segmentUI.DrawSegments(LevelManager.instance.segmentsPerLevel);
         StartCoroutine(segmentUI.CurrentSegment(LevelManager.instance.currentSegmentCount + 1));
 
