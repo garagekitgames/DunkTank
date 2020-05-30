@@ -8,6 +8,7 @@ public class WorldLevelUIDisplayer : MonoBehaviour
 
     public float speed;
 
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
@@ -22,6 +23,7 @@ public class WorldLevelUIDisplayer : MonoBehaviour
 
     public IEnumerator SetCurrentLevel(int levelID)
     {
+        levelID = levelID % 10;
         for (int i = 0; i < _listOfWorlds.Count; i++)
         {
             if(i < levelID)

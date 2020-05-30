@@ -5795,7 +5795,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 5.000061}
-  m_SizeDelta: {x: -552.81067, y: 117}
+  m_SizeDelta: {x: -546.56, y: 117}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &381844165
 MonoBehaviour:
@@ -7256,13 +7256,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454988088}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 1}
+  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7305,7 +7305,7 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  BehaviorAtStart: 0
+  BehaviorAtStart: 1
   CustomStartAnchoredPosition: {x: 0, y: 0, z: 0}
   DeselectAnyButtonSelectedOnHide: 0
   DeselectAnyButtonSelectedOnShow: 0
@@ -8020,7 +8020,7 @@ MonoBehaviour:
   TargetOrientation: 2
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
-  UseCustomStartAnchoredPosition: 1
+  UseCustomStartAnchoredPosition: 0
   ViewCategory: General
   ViewName: LevelLostMenu
 --- !u!225 &454988093
@@ -9611,7 +9611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &567689778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10307,7 +10307,7 @@ MonoBehaviour:
   TargetOrientation: 2
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
-  UseCustomStartAnchoredPosition: 1
+  UseCustomStartAnchoredPosition: 0
   ViewCategory: General
   ViewName: InGameMenu
 --- !u!225 &567689782
@@ -10356,7 +10356,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -11204,17 +11204,18 @@ RectTransform:
   m_GameObject: {fileID: 610114638}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19136634, y: 0.19136634, z: 0.19136634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1612626800}
   - {fileID: 1128646580}
+  - {fileID: 2028642768}
   m_Father: {fileID: 567689778}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2070.102, y: 4140.204}
+  m_AnchoredPosition: {x: 0, y: -40.1}
+  m_SizeDelta: {x: 0, y: -80.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &610114640
 MonoBehaviour:
@@ -15174,6 +15175,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  levelText: {fileID: 2028642769}
 --- !u!114 &855762648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21350,7 +21352,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 402911817}
   m_HandleRect: {fileID: 402911816}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -21426,7 +21428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1128646581
@@ -21461,7 +21463,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 50
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -25504,7 +25506,7 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  BehaviorAtStart: 0
+  BehaviorAtStart: 1
   CustomStartAnchoredPosition: {x: 0, y: 0, z: 0}
   DeselectAnyButtonSelectedOnHide: 0
   DeselectAnyButtonSelectedOnShow: 0
@@ -26255,7 +26257,7 @@ MonoBehaviour:
   TargetOrientation: 2
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
-  UseCustomStartAnchoredPosition: 1
+  UseCustomStartAnchoredPosition: 0
   ViewCategory: General
   ViewName: SettingsMenu
 --- !u!114 &1296518511
@@ -32213,13 +32215,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521158475}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 1}
+  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -32262,7 +32264,7 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  BehaviorAtStart: 0
+  BehaviorAtStart: 1
   CustomStartAnchoredPosition: {x: 0, y: 0, z: 0}
   DeselectAnyButtonSelectedOnHide: 0
   DeselectAnyButtonSelectedOnShow: 0
@@ -32596,7 +32598,7 @@ MonoBehaviour:
         Direction: 3
         CustomPosition: {x: 0, y: 0, z: 0}
         EaseType: 0
-        Ease: 26
+        Ease: 3
         AnimationCurve:
           serializedVersion: 2
           m_Curve:
@@ -32653,7 +32655,7 @@ MonoBehaviour:
       Rotate:
         AnimationType: 1
         Enabled: 0
-        From: {x: 0, y: 0, z: -60}
+        From: {x: 0, y: 0, z: -15}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
         UseCustomFromAndTo: 0
@@ -32663,7 +32665,7 @@ MonoBehaviour:
         LoopType: 1
         RotateMode: 0
         EaseType: 0
-        Ease: 17
+        Ease: 18
         AnimationCurve:
           serializedVersion: 2
           m_Curve:
@@ -32743,11 +32745,11 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
         StartDelay: 0
-        Duration: 0.5
+        Duration: 0.2
       Scale:
         AnimationType: 1
         Enabled: 1
-        From: {x: 0, y: 0, z: 0}
+        From: {x: 0, y: 0, z: 1}
         To: {x: 0, y: 0, z: 0}
         By: {x: 0, y: 0, z: 0}
         UseCustomFromAndTo: 0
@@ -32755,8 +32757,8 @@ MonoBehaviour:
         Elasticity: 1
         NumberOfLoops: -1
         LoopType: 1
-        EaseType: 1
-        Ease: 26
+        EaseType: 0
+        Ease: 27
         AnimationCurve:
           serializedVersion: 2
           m_Curve:
@@ -32808,8 +32810,8 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.2
+        StartDelay: 1
+        Duration: 0.8
       Fade:
         AnimationType: 1
         Enabled: 1
@@ -32827,8 +32829,8 @@ MonoBehaviour:
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
-        StartDelay: 0
-        Duration: 0.3
+        StartDelay: 1.2
+        Duration: 0.2
     AutoStartLoopAnimation: 1
     LoadSelectedPresetAtRuntime: 0
     InstantAnimation: 0
@@ -32872,13 +32874,13 @@ MonoBehaviour:
         SoundName: No Sound
         AudioClip: {fileID: 0}
         OutputAudioMixerGroup: {fileID: 0}
-    PresetCategory: Basic
-    PresetName: Punch
+    PresetCategory: Fade
+    PresetName: SoftGrow
   ShowProgressor: {fileID: 0}
   TargetOrientation: 2
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
-  UseCustomStartAnchoredPosition: 1
+  UseCustomStartAnchoredPosition: 0
   ViewCategory: General
   ViewName: LevelWonMenu
 --- !u!225 &1521158480
@@ -34495,7 +34497,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 1477, y: 180}
-  m_SizeDelta: {x: 180, y: 180}
+  m_SizeDelta: {x: 20, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1612626801
 MonoBehaviour:
@@ -36207,7 +36209,7 @@ MonoBehaviour:
   AutoHideAfterShow: 0
   AutoHideAfterShowDelay: 3
   AutoSelectButtonAfterShow: 0
-  BehaviorAtStart: 0
+  BehaviorAtStart: 1
   CustomStartAnchoredPosition: {x: 0, y: 0, z: 0}
   DeselectAnyButtonSelectedOnHide: 0
   DeselectAnyButtonSelectedOnShow: 0
@@ -36949,7 +36951,7 @@ MonoBehaviour:
   TargetOrientation: 2
   UpdateHideProgressorOnShow: 0
   UpdateShowProgressorOnHide: 0
-  UseCustomStartAnchoredPosition: 1
+  UseCustomStartAnchoredPosition: 0
   ViewCategory: General
   ViewName: PauseMenu
 --- !u!114 &1704137401
@@ -36959,13 +36961,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704137398}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 1}
+  m_Color: {r: 0.12156863, g: 0.53333336, b: 0.7882353, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -37149,7 +37151,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1708779497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41591,8 +41593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 329.09467, y: -55.5}
-  m_SizeDelta: {x: 458.18936, y: 61.831783}
+  m_AnchoredPosition: {x: 332.22, y: -55.5}
+  m_SizeDelta: {x: 464.44, y: 62.081936}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1890237257
 MonoBehaviour:
@@ -43303,6 +43305,83 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.5091248, y: 2.110804, z: 0.13969485}
   m_Center: {x: -1.2434375, y: 1.0461466, z: 0}
+--- !u!1 &2028642767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2028642768}
+  - component: {fileID: 2028642770}
+  - component: {fileID: 2028642769}
+  m_Layer: 5
+  m_Name: LevelNumber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2028642768
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028642767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 610114639}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 34.775024}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2028642769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028642767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: b0988fb10dc12594c9b60fdb71f12817, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 5
+    m_MaxSize: 50
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Level
+--- !u!222 &2028642770
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028642767}
+  m_CullTransparentMesh: 0
 --- !u!1001 &2032799532
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,4 +13,5 @@ public class CannonInfo : ScriptableObject
     public int coinsToBuyBall;
     public float reloadingTime;
     public string ballDataName;
+    public bool isUnlocked;
 }

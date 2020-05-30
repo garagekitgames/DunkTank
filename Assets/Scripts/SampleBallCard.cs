@@ -10,6 +10,8 @@ public class SampleBallCard : MonoBehaviour
     public CannonInfo myProperties;
     public CannonInfo currentCannon;
     public IntVariable currentCoin;
+    //OnBuySuccess
+    //OnBuyFail
 
     public void OnClickMyBall()
     {
@@ -29,6 +31,10 @@ public class SampleBallCard : MonoBehaviour
 
     public void OnClickUpdate()
     {
+        //if current coins >= current selected ball . price && !selectball.isUnlocked
+        // current coins = current coins - ball price;
+        //ball.isunlocked = true;
+        //current ball = selected ball
         if (currentCoin.value > 0)
         {
             if (myProperties.ballLevel < myProperties.ballMaxLevel)

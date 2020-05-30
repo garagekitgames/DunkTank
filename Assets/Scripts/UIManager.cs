@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class UIManager : MonoBehaviour
     public UnityEvent GotoNextLevel;
     public UnityEvent ReplayLevel;
 
+    public Text levelText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,8 @@ public class UIManager : MonoBehaviour
         StartCoroutine(worldLevel.SetCurrentLevel(LevelManager.instance._currentLevel.value + 1));
         segmentUI.DrawSegments(LevelManager.instance.segmentsPerLevel);
         StartCoroutine(segmentUI.CurrentSegment(LevelManager.instance.currentSegmentCount + 1));
+
+        levelText.text = "Level : " + LevelManager.instance._currentLevel.value;
 
     }
 
