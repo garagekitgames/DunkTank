@@ -5,7 +5,8 @@ using UnityEngine.Events;
 using System.Linq;
 using MyCompany.GameFramework.Pooling;
 using EZObjectPools;
-public enum EnemyTypes {Level1,Level2,Level3 }
+using SO;
+public enum EnemyTypes {Level1, Level2, Level3, Boss1, Boss2, Boss3, Boss4 }
 
 public class EnemyManager : MonoBehaviour
 {
@@ -24,7 +25,11 @@ public class EnemyManager : MonoBehaviour
     private List<GameObject> _listOfEnemy = new List<GameObject>();
     public List<GameObject> _listOfDiedEnemy = new List<GameObject>();
 
+    public IntVariable currentLevel;
+
     private int i;
+
+    public bool useObjectPool = false;
 
     //public ObjectPool enemyObjectPool;
 
@@ -66,10 +71,33 @@ public class EnemyManager : MonoBehaviour
         for (i = 0; i < _enemySpawnPoint.Length; i++)
         {
             GameObject temp;
-            curObjectPool[_enemySpawnPoint[i].enemyType].TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
-           // enemyObjectPool.TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
+            if (useObjectPool)
+            {
+                
+                curObjectPool[_enemySpawnPoint[i].enemyType].TryGetNextObject(_enemySpawnPoint[i].transform.position, Quaternion.identity, out temp);
+                Debug.Log("Position Y : " + _enemySpawnPoint[i].transform.position.y);
+                // enemyObjectPool.TryGetNextObject(_enemySpawnPoint[i].spawnPosition.position, Quaternion.identity, out temp);
+            }
+            else
+            {
+                 temp = Instantiate(GetTheEnemy(_enemySpawnPoint[i].enemyType), _enemySpawnPoint[i].transform.position, Quaternion.identity);
+
+            }
+
+
+
             _listOfEnemy.Add(temp);
-            temp.GetComponent<Enemy_Dunk>().OnSpawned();
+
+            //if(!(currentLevel.value%10 == 0))
+            //{
+                temp.GetComponent<Enemy_Dunk>().OnSpawned();
+            //}
+            //else
+            //{
+            //    //Boss
+            //    temp.GetComponent<CharacterHealth>().OnSpawned();
+            //}
+            
         }
     }
 
@@ -78,7 +106,7 @@ public class EnemyManager : MonoBehaviour
     {
         foreach (var enemy in enemyTypes)
         {
-            EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, enemy.Value / 2, true, true, true);
+            EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, enemy.Value, true, true, true);
             //EZObjectPool newObjectPool = EZObjectPool.CreateObjectPool(GetTheEnemy(enemy.Key), GetTheEnemy(enemy.Key).name, 2, true, true, true);
 
             curObjectPool.Add(enemy.Key, newObjectPool);
@@ -87,18 +115,32 @@ public class EnemyManager : MonoBehaviour
 
     public void StopAllEnemies()
     {
+
         foreach (var item in enemyRuntimeSet.Items)
         {
-            item.GetComponent<APRController>().StopCharacter();
+            if(item.GetComponent<APRController>())
+            {
+                item.GetComponent<APRController>().StopCharacter();
+            }
+            
         }
     }
 
     public void ResumeAllEnemies()
     {
-        foreach (var item in enemyRuntimeSet.Items)
+        if (!(currentLevel.value % 10 == 0))
         {
-            item.GetComponent<APRController>().ResumeCharacter();
+            foreach (var item in enemyRuntimeSet.Items)
+            {
+                if (item.GetComponent<APRController>())
+                {
+                    item.GetComponent<APRController>().ResumeCharacter();
+                }
+
+            }
         }
+
+            
     }
 
     GameObject GetTheEnemy(EnemyTypes _reqdType)

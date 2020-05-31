@@ -49,8 +49,12 @@ public class Enemy_Dunk : MonoBehaviour
     }
     private void Update()
     {
-        hpSlider.value = enemyHP / 100;
-        hpSlider.transform.LookAt(Camera.main.transform);
+        if(hpSlider)
+        {
+            hpSlider.value = enemyHP / 100;
+            hpSlider.transform.LookAt(Camera.main.transform);
+        }
+        
     }
     
     #region Enemy Damage and life functions 
@@ -141,7 +145,16 @@ public class Enemy_Dunk : MonoBehaviour
         if(!isEnemyAlive)
         {
             debugTest.Add("Disabled");
-            this.gameObject.SetActive(false);
+            if(EnemyManager.eManager.useObjectPool)
+            {
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+            //
+            
         }
         
     }

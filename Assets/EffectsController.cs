@@ -44,6 +44,8 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
     public GameObject lightHitFXPrefab;
     public GameObject heavyHitFXPrefab;
 
+    public GameObject explosionFXPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +70,17 @@ public class EffectsController : UnitySingletonPersistent<EffectsController>
         {
             GameObject hitFX = Instantiate(Instance.heavyHitFXPrefab, position, rot);
         }
+
+    }
+
+    public void CreateExplosionEffect(Vector3 position)
+    {
+
+        //Quaternion rot = Quaternion.FromToRotation(Vector3.forward, normal);
+        //camRippler.RippleEffect(position);
+        
+            GameObject hitFX = Instantiate(Instance.explosionFXPrefab, position, Quaternion.identity);
+        //}
 
     }
 

@@ -19,6 +19,7 @@ public class LevelManager : MonoBehaviour
     public float distanceBetweenSegments;
 
     [Header("Segments")]
+    public Segment[] bossSet;
     public Segment[] firstSet;
     public Segment[] secondSet;
     public Segment[] thirdSet;
@@ -89,25 +90,44 @@ public class LevelManager : MonoBehaviour
         }
 
         GetAllEnemyTypes();
-        EnemyManager.eManager.SetUpEnemyPools(enemyType_Dic);
+        if(EnemyManager.eManager.useObjectPool)
+        {
+            EnemyManager.eManager.SetUpEnemyPools(enemyType_Dic);
+        }
+        //
 
         EnableCurrentSegment();
     }
 
     Segment[] ChooseSegments(int _levelNum)
     {
-        Segment[] segmentToReturn = new Segment[segmentsPerLevel];
+        if(_levelNum%10 == 0)
+        {
+            segmentsPerLevel = 1;
+        }
+        else
+        {
+            segmentsPerLevel = Random.Range(3, 5);
+        }
 
+        Segment[] segmentToReturn = new Segment[segmentsPerLevel];
         switch (_levelNum)
         {
-            case int n when (n <= 10):
+            case int n when (n < 10):
                 for (int i = 0; i < segmentsPerLevel; i++)
                 {
                     segmentToReturn[i] = firstSet[Random.Range(0, firstSet.Length)];
                 }
                 break;
 
-            case int n when (n <= 20 && n >= 11):
+            case int n when (n % 10 == 0):
+                for (int i = 0; i < segmentsPerLevel; i++)
+                {
+                    segmentToReturn[i] = bossSet[Random.Range(0, bossSet.Length)];
+                }
+                break;
+
+            case int n when (n < 20 && n >= 11):
                 for (int i = 0; i < segmentsPerLevel; i++)
                 {
                     segmentToReturn[i] = secondSet[Random.Range(0, secondSet.Length)];

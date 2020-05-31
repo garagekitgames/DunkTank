@@ -968,6 +968,7 @@ MonoBehaviour:
   LowerLeftLeg: {fileID: 4920875249397806950}
   RightFoot: {fileID: 4920875248915676793}
   LeftFoot: {fileID: 4920875250708116262}
+  APR_Parts: []
   RightHand: {fileID: 361938166973411248}
   LeftHand: {fileID: 361938166548891384}
   COMP: {fileID: 4920875248794848925}
@@ -979,6 +980,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   canMove: 1
   startMoveSpeed: 0
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!195 &4974739166571780257
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1109,7 +1111,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4920875248915676793}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1308,7 +1310,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4920875249066010178}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -1495,7 +1497,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4920875249397806950}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2239,7 +2241,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4920875250161938587}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -2425,7 +2427,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4920875250163175428}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -3030,7 +3032,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4920875250708116262}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1

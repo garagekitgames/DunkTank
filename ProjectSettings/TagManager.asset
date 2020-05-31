@@ -10,6 +10,9 @@ TagManager:
   - Ground
   - CameraParent
   - KillZone
+  - World
+  - Target
+  - FX
   layers:
   - Default
   - TransparentFX
@@ -25,8 +28,8 @@ TagManager:
   - Ground
   - Thrower
   - excludeNavmesh
-  - 
-  - 
+  - BaseCollider
+  - Ragdoll
   - 
   - 
   - 

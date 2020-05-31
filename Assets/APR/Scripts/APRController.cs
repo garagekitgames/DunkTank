@@ -238,8 +238,16 @@ public class APRController : MonoBehaviour
     private void OnEnable()
     {
         agent.enabled = true;
-        APR_Parts[0].transform.localPosition = startPosition;
-        agent.Warp(APR_Parts[0].transform.position);
+        if(EnemyManager.eManager.useObjectPool)
+        {
+            APR_Parts[0].transform.localPosition = startPosition;
+            agent.Warp(APR_Parts[0].transform.position);
+        }
+
+
+
+
+
         //this.transform.position = Vector3.zero;
         //agent.isStopped = false;
         //agent.ResetPath();
@@ -272,13 +280,19 @@ public class APRController : MonoBehaviour
             }
         }
 
+        if (EnemyManager.eManager.useObjectPool)
+        {
+            APR_Parts[0].transform.localPosition = startPosition;
 
-        APR_Parts[0].transform.localPosition = startPosition;
-        //this.agent.isStopped = true;
-        //this.agent.ResetPath();
-        agent.Warp(this.transform.position);
+            agent.Warp(this.transform.position);
+        }
+        //APR_Parts[0].transform.localPosition = startPosition;
+
+        //agent.Warp(this.transform.position);
         this.agent.enabled = false;
-       // this.target = APR_Parts[0].transform.position;
+
+
+        // this.target = APR_Parts[0].transform.position;
         
 
         //this.transform.position = Vector3.zero;

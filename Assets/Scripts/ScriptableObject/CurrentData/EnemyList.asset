@@ -15,4 +15,6 @@ MonoBehaviour:
   _listOfEnemies:
   - {fileID: 11400000, guid: d09b000ce3d0bc44cbbe649c2d6884bf, type: 2}
   - {fileID: 11400000, guid: c7d2991b621542a4c88aa05f3d79d273, type: 2}
+  - {fileID: 11400000, guid: ebb5d0274046c9548a390ba6dc58f1e6, type: 2}
+  - {fileID: 11400000, guid: 604c10cbba4f60142adfa62fae32ef63, type: 2}
   _listOfBoss: []

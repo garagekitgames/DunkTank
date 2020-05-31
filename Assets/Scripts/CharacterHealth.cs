@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using garagekitgames;
 
 public class CharacterHealth : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class CharacterHealth : MonoBehaviour
     private float startMaxTorue, startMaxForce, startMaxJointTorque;
 
     public List<float> bodyPartHealth = new List<float>();
-
+    public EnemyRuntimeSet enemyRuntimeSet;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +24,35 @@ public class CharacterHealth : MonoBehaviour
         startMaxTorue = myRagdollDriver.maxTorque;
         startMaxForce = myRagdollDriver.maxForce;
         startMaxJointTorque = myRagdollDriver.maxJointTorque;
-
+        this.GetComponent<Enemy_Dunk>().startingHealth = startingHealth;
+        this.GetComponent<Enemy_Dunk>().enemyHP = startingHealth;
+        this.GetComponent<Enemy_Dunk>().isEnemyAlive = true;
         foreach (var item in myRagdollDriver.slaveBodyParts)
         {
             bodyPartHealth.Add(startingHealth);
         }
     }
+
+    public void OnSpawned()
+    {
+        health = startingHealth;
+        startingHealth = 100;
+        dead = false;
+        enemyRuntimeSet.Add(this.GetComponent<Enemy_Dunk>());
+
+        if(this.GetComponent<CharacterNavigation>())
+        {
+            this.GetComponent<CharacterNavigation>().target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
+        }
+        //myEnemyController.agent.isStopped = false;
+        //myEnemyController.agent.ResetPath();
+        //myEnemyController.target = LevelManager.instance.currentSegmentObj.goalObject.transform.position;
+        //debugTest.Add("Spawned");
+        //myEnemyController.DeactivateRagdoll();
+        //CancelInvoke();
+        //InvokeRepeating("Yell", Random.Range(3.0f, 10.0f), Random.Range(2.0f, 10.0f));
+    }
+
 
     public virtual void TakeHit(float damage, Vector3 hitPoint, Vector3 hitDirection, int teamID, bodyPartType myBodyPartType)
     {
@@ -87,6 +111,15 @@ public class CharacterHealth : MonoBehaviour
         {
             OnDeath();
         }
+        //isEnemyAlive = false;
+        //myEnemyController.ActivateRagdoll();
+        enemyRuntimeSet.Remove(this.GetComponent<Enemy_Dunk>());
+        EnemyManager.eManager.CheckAllEnemiesDiedBeforeReaching();
+        //this.GetComponent<Enemy_Dunk>().startingHealth = 0;
+        this.GetComponent<Enemy_Dunk>().enemyHP = 0;
+        this.GetComponent<Enemy_Dunk>().isEnemyAlive = false;
+        //debugTest.Add("Dead");
+        //Invoke("DisableEnemy", 3f);
         //Destroy(this.gameObject);
     }
 
