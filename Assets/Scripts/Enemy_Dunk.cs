@@ -50,6 +50,8 @@ public class Enemy_Dunk : MonoBehaviour
     }
     #endregion
 
+    public Coroutine emoteRoutine;
+
     IEnumerator ShowEmote()
     {
         emotionRenderer.enabled = true;
@@ -69,9 +71,8 @@ public class Enemy_Dunk : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.5f);
-
         emotionRenderer.enabled = false;
-
+        emoteRoutine = null;
     }
 
     public void Yell()
@@ -80,7 +81,17 @@ public class Enemy_Dunk : MonoBehaviour
         {
             EffectsController.Instance.PlayRandomLaughSound(myEnemyController.APR_Parts[2].transform.position, Random.Range(1.0f, 10.0f), "yell");
             myEmotion = Emotion.happy;
-            StartCoroutine(ShowEmote());
+            if(emoteRoutine!=null)
+            {
+                print("On Hurt emoji");
+
+                // StopCoroutine(emoteRoutine);
+            }
+            else
+            {
+                print("YELL");
+                emoteRoutine = StartCoroutine(ShowEmote());
+            }
 
         }
     }
@@ -160,7 +171,12 @@ public class Enemy_Dunk : MonoBehaviour
 
             EffectsController.Instance.slowDownTime(4, 0.02f, 0);
             myEmotion = Emotion.hurt;
-            StartCoroutine(ShowEmote());
+            if (emoteRoutine != null)
+            {
+                StopCoroutine(emoteRoutine);
+            }
+            print("On Hurt emoji Called");
+            emoteRoutine = StartCoroutine(ShowEmote());
         }
         else
         {
