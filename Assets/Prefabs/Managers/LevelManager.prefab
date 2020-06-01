@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6360106671271393924}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -52,6 +52,8 @@ MonoBehaviour:
   initialSegmentSpawnPoint: {x: 0, y: 1.6, z: -6}
   segmentsPerLevel: 3
   distanceBetweenSegments: 120
+  bossSet:
+  - {fileID: 4525973054214970933, guid: fb83982782d104d708f4a410f68de69c, type: 3}
   firstSet:
   - {fileID: 4525973054214970933, guid: bb04a535ecbbf1c4989ecab1e950e161, type: 3}
   - {fileID: 8424456989994007053, guid: 250d3d13a18079d46ad783aacc1156a2, type: 3}

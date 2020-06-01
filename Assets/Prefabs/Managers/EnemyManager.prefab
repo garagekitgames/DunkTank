@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484521288874600686}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -66,6 +66,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _listOfDiedEnemy: []
+  currentLevel: {fileID: 11400000, guid: ffc688fdf01c848c8ac8e16505ba88bb, type: 2}
+  useObjectPool: 0
   prevObjectPool: []
 --- !u!114 &5484521288874600683
 MonoBehaviour:

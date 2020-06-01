@@ -5,6 +5,7 @@ using UnityEngine;
 using EZObjectPools;
 using EZCameraShake;
 using UnityEngine.Events;
+using MoreMountains.NiceVibrations;
 
 public class Thrower : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class Thrower : MonoBehaviour
         CameraShaker.Instance.ShakeOnce(Random.Range(0.3f, 0.8f), 20, 0.05f, 0.4f);
         AudioManager.instance.Play("BallLaunch");
         AudioManager.instance.Play("Woosh");
+        MMVibrationManager.Haptic(HapticTypes.LightImpact);
         StartCoroutine(ReturnObjectToPool(ball));
     }
 
@@ -63,6 +65,7 @@ public class Thrower : MonoBehaviour
         AudioManager.instance.Play("BallLaunch");
         AudioManager.instance.Play("Woosh");
         //Destroy(ball.gameObject, 3);
+        MMVibrationManager.Haptic(HapticTypes.LightImpact);
         StartCoroutine(ReturnObjectToPool(ball));
     }
 
