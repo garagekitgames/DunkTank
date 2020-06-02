@@ -80,7 +80,7 @@ public class Enemy_Dunk : MonoBehaviour
         {
             EffectsController.Instance.PlayRandomLaughSound(myEnemyController.APR_Parts[2].transform.position, Random.Range(1.0f, 10.0f), "yell");
             myEmotion = Emotion.happy;
-            StartCoroutine(ShowEmote());
+            //StartCoroutine(ShowEmote());
 
         }
     }
