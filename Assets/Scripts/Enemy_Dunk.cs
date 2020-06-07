@@ -119,6 +119,15 @@ public class Enemy_Dunk : MonoBehaviour
             enemyHP -= damage;
             debugTest.Add("Damaged : " + enemyHP);
             CheckAlive();
+
+            myEmotion = Emotion.hurt;
+            if (emoteRoutine != null)
+            {
+                StopCoroutine(emoteRoutine);
+            }
+            print("On Hurt emoji Called");
+            emoteRoutine = StartCoroutine(ShowEmote());
+
             Debug.Log("Damaged : " + enemyHP);
         }
 
@@ -170,13 +179,7 @@ public class Enemy_Dunk : MonoBehaviour
             }
 
             EffectsController.Instance.slowDownTime(4, 0.02f, 0);
-            myEmotion = Emotion.hurt;
-            if (emoteRoutine != null)
-            {
-                StopCoroutine(emoteRoutine);
-            }
-            print("On Hurt emoji Called");
-            emoteRoutine = StartCoroutine(ShowEmote());
+            
         }
         else
         {

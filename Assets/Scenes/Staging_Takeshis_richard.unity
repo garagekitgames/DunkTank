@@ -3102,7 +3102,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1497288013940878, guid: 6dcb8c33aa9edf34bbd176455c1d058a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4279782131410246, guid: 6dcb8c33aa9edf34bbd176455c1d058a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5836,17 +5836,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 626786704}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1383085349}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -18879,6 +18868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
         type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
       propertyPath: ShowBehavior.Animation.Fade.StartDelay
       value: 1
       objectReference: {fileID: 0}
@@ -18891,6 +18885,36 @@ PrefabInstance:
         type: 3}
       propertyPath: ShowBehavior.Animation.Scale.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1383085349}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6480548480865951311, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
+        type: 3}
+      propertyPath: ShowBehavior.OnStart.Event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6480548480865951307, guid: 6b84e7f8320ecee42ae6dae92d6d9123,
         type: 3}
