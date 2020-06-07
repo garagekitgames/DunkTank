@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Staging_Takeshis_richard.unity
     guid: 6bd40c2f56a704a39a83f8d4c1f07aa7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Staging_Takeshis_richard_Boss.unity
     guid: 7a60fb3afe98b4ea4bc205a2db5dd7a9
   m_configObjects: {}

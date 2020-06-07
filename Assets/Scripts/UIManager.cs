@@ -83,4 +83,14 @@ public class UIManager : MonoBehaviour
         levelFailedUI.SetActive(false);
         ReplayLevel.Invoke();
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
 }
