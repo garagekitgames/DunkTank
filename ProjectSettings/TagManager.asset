@@ -13,6 +13,8 @@ TagManager:
   - World
   - Target
   - FX
+  - Effects
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -45,7 +47,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - PostProcessing
   m_SortingLayers:
   - name: Default
     uniqueID: 0
