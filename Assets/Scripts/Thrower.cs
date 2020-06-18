@@ -49,6 +49,7 @@ public class Thrower : MonoBehaviour
         ballObjectPool.TryGetNextObject(launchPoint.position, Quaternion.identity, out ball);
         ball.GetComponent<Rigidbody>().AddForce((_target - launchPoint.position).normalized * speed, ForceMode.VelocityChange);
         CameraShaker.Instance.ShakeOnce(Random.Range(0.3f, 0.8f), 20, 0.05f, 0.4f);
+        //CameraEffects.ShakeOnce(Random.Range(0.2f, 0.4f), 4, Vector3.back *2);
         AudioManager.instance.Play("BallLaunch");
         AudioManager.instance.Play("Woosh");
         MMVibrationManager.Haptic(HapticTypes.LightImpact);
@@ -62,6 +63,8 @@ public class Thrower : MonoBehaviour
         ballObjectPool.TryGetNextObject(launchPoint.position, Quaternion.identity, out ball);
         ball.GetComponent<Rigidbody>().AddForce((_target - origin).normalized * speed, ForceMode.VelocityChange);
         CameraShaker.Instance.ShakeOnce(Random.Range(0.3f, 0.8f), 20, 0.05f, 0.4f);
+        //CameraEffects.ShakeOnce(Random.Range(0.2f, 0.4f), 4, Vector3.back * 2);
+        //CameraEffects.ShakeOnce();
         AudioManager.instance.Play("BallLaunch");
         AudioManager.instance.Play("Woosh");
         //Destroy(ball.gameObject, 3);

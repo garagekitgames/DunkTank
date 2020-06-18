@@ -38,6 +38,8 @@ public class ImpactDetect : MonoBehaviour
                 if(this.gameObject.name.Contains("APR_Head"))
                 {
                     CameraShaker.Instance.ShakeOnce(Random.Range(1f, 1.5f), 10, 0.05f, 0.4f);
+                    //CameraEffects.ShakeOnce(Random.Range(0.2f, 0.4f), 5, new Vector3(1f, 1f, 0) * 3f);
+                   // CameraEffects.ShakeOnce();
                     EffectsController.Instance.PlayBallHitSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
                     EffectsController.Instance.PlayHurtSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
                     EffectsController.Instance.CreateHitEffect(col.GetContact(0).point, 1, -col.GetContact(0).normal);
@@ -48,6 +50,7 @@ public class ImpactDetect : MonoBehaviour
                 else
                 {
                     CameraShaker.Instance.ShakeOnce(Random.Range(0.4f, 1f), 10, 0.05f, 0.4f);
+                    //CameraEffects.ShakeOnce(Random.Range(0.2f, 0.4f), 5, new Vector3(1f, 1f, 0));
                     EffectsController.Instance.PlayBallHitSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
                     EffectsController.Instance.PlayHurtSound(col.GetContact(0).point, col.relativeVelocity.magnitude, col.transform.tag);
                     EffectsController.Instance.CreateHitEffect(col.GetContact(0).point, 0, -col.GetContact(0).normal);

@@ -26,12 +26,15 @@ public class GameFlowController : MonoBehaviour
     public float startingReloadTime;
     public float fastReloadTime;
 
+    //public UnityEvent 
+
     private void Start()
     {
         startingReloadTime = currentBall.reloadingTime;
     }
     public void SetGameStarted()
     {
+        AudioManager.instance.Play("Three");
         gameStarted = true;
         StartCoroutine(DecreaseValue());
     }
@@ -42,13 +45,23 @@ public class GameFlowController : MonoBehaviour
         //startText.enabled = false;
         if (gameStarted)
         {
+            
             timeLeft -= Time.deltaTime;
             startText.text = (timeLeft).ToString("0");
             startText.transform.parent.gameObject.SetActive(true);
+            if (timeLeft > 2 && timeLeft < 3)
+            {
+                //AudioManager.instance.Play("Two");
+            }
+            if (timeLeft > 1 && timeLeft < 2)
+            {
+               // AudioManager.instance.Play("One");
+            }
+
             if (timeLeft > 0 && timeLeft < 1)
             {
                 startText.text = "GO";
-
+               // AudioManager.instance.Play("Go");
                 //Do something useful or Load a new game scene depending on your use-case
             }
             if (timeLeft < 0)
